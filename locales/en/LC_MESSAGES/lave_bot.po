@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-17 17:32+0500\n"
-"PO-Revision-Date: 2023-01-17 20:47+0500\n"
+"POT-Creation-Date: 2023-01-18 02:20+0500\n"
+"PO-Revision-Date: 2023-01-18 02:22+0500\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -19,15 +19,19 @@ msgstr ""
 "Generated-By: Babel 2.11.0\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#: handlers/game/create.py:27
+#: handlers/game/create_game.py:34
 msgid "<b>🎰 Доступные игры</b>"
 msgstr "<b>🎰 Available games</b>"
 
-#: handlers/game/create.py:32
+#: handlers/game/create_game.py:39
 msgid "🥲 Новых игр не найдено"
 msgstr "🥲 No new games found"
 
-#: handlers/game/create.py:41
+#: handlers/game/create_game.py:44
+msgid "<b>⭐️ Выберите тип игры</b>"
+msgstr "<b>⭐️ Select a game type</b>"
+
+#: handlers/game/create_game.py:62
 msgid ""
 "<b>💵 Укажите сумму LAVE для создания игры (Минимум 1000)</b>\n"
 "--------------------------\n"
@@ -37,70 +41,72 @@ msgstr ""
 "--------------------------\n"
 "<i>💰 LAVE: {}</i>"
 
-#: handlers/game/create.py:60
+#: handlers/game/create_game.py:85
 msgid "❕ Отмена"
 msgstr "❕ Cancel"
 
-#: handlers/game/create.py:65 handlers/game/create.py:82
+#: handlers/game/create_game.py:90 handlers/game/create_game.py:107
 msgid "❕ Ошибка, сумма игры должна быть больше 1000 LAVE"
 msgstr "❕ Error, the sum of the game must be greater than 1000 LAVE"
 
-#: handlers/game/create.py:72
+#: handlers/game/create_game.py:97
 msgid "❕ Ошибка, нельзя создать больше 5 игр"
 msgstr "❕ Error, you cannot create more than 5 games"
 
-#: handlers/game/create.py:77
+#: handlers/game/create_game.py:102
 msgid "❕ Ошибка, введите /start"
 msgstr "❕ Error, enter /start"
 
-#: handlers/game/create.py:87
+#: handlers/game/create_game.py:112
 msgid "❕ Ошибка, на вашем балансе недостаточно LAVE"
 msgstr "❕ Error, not enough LAVE on your balance"
 
-#: handlers/game/create.py:94
-msgid "🃏 Игра создана, ожидайте соперника."
-msgstr "🃏 Game established, wait for your opponent."
+#: handlers/game/create_game.py:121
+msgid "{} Игра создана, ожидайте соперника."
+msgstr "{} Game created, wait for the opponent."
 
-#: handlers/game/create.py:122 handlers/game/create.py:130
-#: handlers/game/create.py:138
+#: handlers/game/create_game.py:151 handlers/game/create_game.py:161
+#: handlers/game/create_game.py:169
 msgid "Дальше пусто"
 msgstr "Nothing further"
 
-#: handlers/game/mygames.py:24
-msgid ""
-"<b>🎰 Ваши игры</b>\n"
-"--------------------------\n"
-"<i>Выберите игру, которую вы хотите удалить</i>"
-msgstr ""
-"<b>🎰 Your games</b>\n"
-"--------------------------\n"
-"<i>Select the game you want to delete</i>"
-
-#: handlers/game/mygames.py:40
-msgid "❌ Активную игру отменить нельзя"
-msgstr "❌ An active game cannot be canceled"
-
-#: handlers/game/mygames.py:47
-msgid "❌ Игра отменена"
-msgstr "❌ Game canceled"
-
-#: handlers/game/play.py:34 handlers/game/play.py:54
+#: handlers/game/play_game.py:34
 msgid "❕ Ошибка, игра уже идет, выберите другую игру или создайте новую."
 msgstr ""
 "❕ Error, the game is already running, select another game or create a new "
 "one."
 
-#: handlers/game/play.py:42
+#: handlers/game/play_game.py:42
 msgid "❕ Ошибка, на вашем балансе недостаточно LAVE."
 msgstr "❕ Error, there is not enough LAVE on your balance."
 
-#: handlers/game/play.py:66
+#: handlers/game/play_game.py:62
+msgid ""
+"👊 <i>Вы кинули кубики <b>№ {}</b> на сумму {} LAVE, через 3 секунды, они "
+"решат вышу судьбу</i>"
+msgstr ""
+"👊 <i>You rolled dice <b># {}</b> for the amount of {} LAVE, in 3 seconds, "
+"they will decide your fate</i>"
+
+#: handlers/game/play_game.py:70
+msgid ""
+"👊 @{} <i>Вы кинули кубики <b>№ {}</b> на сумму {} LAVE, через 3 секунды, "
+"они решат вышу судьбу</i>"
+msgstr ""
+"👊 @{} <i>You rolled dice <b># {}</b> to the amount of {} LAVE, in 3 "
+"seconds, they will decide your fate</i>"
+
+#: handlers/game/play_game.py:84 handlers/game/play_game.py:87
+msgid "Удача"
+msgstr "Luck"
+
+#: handlers/game/play_game.py:101
 msgid "👌 <i>Вы успешно присоединились к игре <b>№ {}</b> на сумму {} LAVE</i>"
 msgstr ""
 "👌 <i>You have successfully joined the game <b>№ {}</b> for the amount of {} "
 "LAVE</i>"
 
-#: handlers/game/play.py:74
+#: handlers/game/play_game.py:109
 msgid ""
 "👌 @{} <i>присоединился к игре <b>№ {}</b> на сумму {} LAVE , ожидайте свой "
 "ход.</i>"
@@ -108,43 +114,44 @@ msgstr ""
 "👌 @{} <i>joined the game <b>№ {}</b> for the amount of {} LAVE , wait for "
 "your turn.</i>"
 
-#: handlers/game/play.py:91
+#: handlers/game/play_game.py:126
 msgid "🃏 @{} взял(а) карту."
 msgstr "🃏 @{} took a card."
 
-#: handlers/game/play.py:101
+#: handlers/game/play_game.py:136
 msgid "❕ Ошибка, игра уже закончилась."
 msgstr "❕ Error, the game is already over."
 
-#: handlers/game/play.py:111
+#: handlers/game/play_game.py:146
 msgid "✅ Вы закончили игру, теперь играет @{}, ожидайте результат."
-msgstr "✅ You have finished the game, now @{} is playing, wait for the result."
+msgstr ""
+"✅ You have finished the game, now @{} is playing, wait for the result."
 
-#: handlers/game/play.py:116
+#: handlers/game/play_game.py:151
 msgid "✔️ @{} закончил играть и у него {} карт, банкуй"
 msgstr "✔️ @{} has finished playing and has {} cards, bankui"
 
-#: handlers/game/play.py:135 handlers/game/play.py:191
+#: handlers/game/play_game.py:170 handlers/game/play_game.py:226
 msgid "Игра закончена"
 msgstr "Game's over"
 
-#: handlers/game/play.py:146
+#: handlers/game/play_game.py:181
 msgid "Сейчас ходит банк, ждите"
 msgstr "Now the bank is walking, wait"
 
-#: handlers/game/play.py:167
+#: handlers/game/play_game.py:202
 msgid "Набрал золотой сет"
 msgstr "Got the golden set"
 
-#: handlers/game/play.py:172
+#: handlers/game/play_game.py:207
 msgid "Набрал 21"
 msgstr "scored 21"
 
-#: handlers/game/play.py:178
+#: handlers/game/play_game.py:213
 msgid "Перебор очков"
 msgstr "Bust points"
 
-#: handlers/game/play.py:206 handlers/game/play.py:215
+#: handlers/game/play_game.py:241 handlers/game/play_game.py:250
 msgid ""
 "ℹ️ Количество карт: {}\n"
 "\n"
@@ -154,7 +161,7 @@ msgstr ""
 "\n"
 "🔄 Number of points: {}"
 
-#: handlers/game/play.py:233
+#: handlers/game/play_game.py:268
 msgid ""
 "<b>🕹 Результат игры №</b> {}:\n"
 "╠ @{} - {}  ⚔️ @{} - {}\n"
@@ -165,6 +172,24 @@ msgstr ""
 "╠ @{} - {} ⚔️ @{} - {}\n"
 "║ <b>Winner:</b> @{} [{}]\n"
 "╚ <b>Win amount:</b> <code>{}</code> LAVE"
+
+#: handlers/game/user_game.py:24
+msgid ""
+"<b>🎰 Ваши игры</b>\n"
+"--------------------------\n"
+"<i>Выберите игру, которую вы хотите удалить</i>"
+msgstr ""
+"<b>🎰 Your games</b>\n"
+"--------------------------\n"
+"<i>Select the game you want to delete</i>"
+
+#: handlers/game/user_game.py:40
+msgid "❌ Активную игру отменить нельзя"
+msgstr "❌ An active game cannot be canceled"
+
+#: handlers/game/user_game.py:47
+msgid "❌ Игра отменена"
+msgstr "❌ Game canceled"
 
 #: handlers/other/rating.py:34
 msgid ""
@@ -189,7 +214,9 @@ msgid ""
 "<code>{}</code>\n"
 "\n"
 "<b>ЧТОБЫ ВАШИ СРЕДСТВА ПОПАЛИ НА ВАШ БАЛАНС ВАМ НУЖНО ОБЯЗАТЕЛЬНО ВВЕСТИ "
-"КОМЕНТАРИЙ К ПЛАТЕЖУ, ИНАЧЕ ОНИ БУДУТ НАВСЕГДА УТЕРЯНЫ</b>"
+"КОМЕНТАРИЙ К ПЛАТЕЖУ, ИНАЧЕ ОНИ БУДУТ НАВСЕГДА УТЕРЯНЫ. И КРИПТОВАЛЮТА "
+"TONCOIN НЕ ИСПОЛЬЗУЕТСЯ В БОТЕ, А НУЖНА ЧТОБ ОПЛАТИТЬ КОМИССИЮ ПРИ ВЫВОДЕ "
+"ВАШИХ СРЕДСТВ.</b>"
 msgstr ""
 "📥 Use the address below to top up your balance.\n"
 "\n"
@@ -200,7 +227,9 @@ msgstr ""
 "<code>{}</code>\n"
 "\n"
 "<b>TO GET YOUR FUNDS TO YOUR BALANCE YOU NEED TO ENTER THE COMMENT TO THE "
-"PAYMENT, OTHERWISE THEY WILL BE FOREVER LOST</b>"
+"PAYMENT, OTHERWISE THEY WILL BE FOREVER LOST. AND THE CRYPTOCURRENCY TONCOIN "
+"IS NOT USED IN THE BOT, AND IS NEEDED TO PAY THE FEE FOR THE WITHDRAWAL OF "
+"YOUR FUNDS.</b>"
 
 #: handlers/profile/wallet.py:22
 msgid ""
@@ -286,19 +315,19 @@ msgstr ""
 msgid "{} LAVE скоро будут переведены на ваш кошелек 👛"
 msgstr "{} LAVE will be transferred to your wallet soon 👛"
 
-#: handlers/start/main.py:31 handlers/start/main.py:38
+#: handlers/start/main.py:30 handlers/start/main.py:37
 msgid "<i>🌍 Выберите язык</i>"
 msgstr "<i>🌍 Choose your language</i>"
 
-#: handlers/start/main.py:70 handlers/start/main.py:77
+#: handlers/start/main.py:69 handlers/start/main.py:76
 msgid "👑 Добро пожаловать, <b>{}</b>"
 msgstr "👑 Welcome, <b>{}</b>"
 
-#: handlers/start/main.py:90
+#: handlers/start/main.py:89
 msgid "На данный момент пользователи сыграли {} игр на сумму {} LAVE."
 msgstr "So far, users have played {} games worth {} LAVE."
 
-#: handlers/start/main.py:109
+#: handlers/start/main.py:108
 msgid ""
 "🔐 id: <code>{}</code>\n"
 "\n"
@@ -330,49 +359,58 @@ msgstr ""
 
 #: keyboard/cancel_button.py:8 keyboard/cancel_button.py:15
 #: keyboard/cancel_button.py:22 keyboard/cancel_button.py:29
-#: keyboard/cancel_button.py:36 keyboard/game_button.py:44
-#: keyboard/game_button.py:72 keyboard/main_button.py:47
-#: keyboard/main_button.py:61 keyboard/withdraw_button.py:18
+#: keyboard/cancel_button.py:36 keyboard/game_button.py:54
+#: keyboard/game_button.py:81 keyboard/game_button.py:97
+#: keyboard/main_button.py:47 keyboard/main_button.py:61
+#: keyboard/withdraw_button.py:28
 msgid "назад"
 msgstr "back"
 
-#: keyboard/game_button.py:17
+#: keyboard/game_button.py:21
 msgid "😢 Активных игр сейчас нет"
 msgstr "😢 There are no active games now"
 
-#: keyboard/game_button.py:24
-msgid "🎲 #Game_{} | Сумма {} LAVE"
-msgstr "🎲 #Game_{} | Sum {}LAVE"
+#: keyboard/game_button.py:28
+msgid "{} #Game_{} | Сумма {} LAVE"
+msgstr "{} #Game_{} | Sum {} LAVE"
 
-#: keyboard/game_button.py:34
-msgid "🃏 Мои игры"
-msgstr "🃏 My games"
+#: keyboard/game_button.py:38 keyboard/game_button.py:91
+msgid "🃏 21 очко"
+msgstr "🃏 21 points"
 
-#: keyboard/game_button.py:35
+#: keyboard/game_button.py:39 keyboard/game_button.py:92
+msgid "🎲 Кости"
+msgstr "🎲 Dice"
+
+#: keyboard/game_button.py:43
+msgid "🕹️ Создать"
+msgstr "🕹️ Create"
+
+#: keyboard/game_button.py:48
+msgid "🗂 Мои игры"
+msgstr "🗂 My games"
+
+#: keyboard/game_button.py:49
 msgid "↪️ Обновить"
 msgstr "↪️ Refresh"
 
-#: keyboard/game_button.py:39
-msgid "🕹️ Создать игру"
-msgstr "🕹️ Create game"
-
-#: keyboard/game_button.py:60
+#: keyboard/game_button.py:68
 msgid "😢 Вы не создали игры"
 msgstr "😢 You haven't created games"
 
-#: keyboard/game_button.py:67
-msgid "❌ | 🎲 #Game_{} | Сумма {} LAVE"
-msgstr "❌ | 🎲 #Game_{} | Sum {}LAVE"
+#: keyboard/game_button.py:76
+msgid "❌ | {} #Game_{} | Сумма {} LAVE"
+msgstr "❌ | {} #Game_{} | Sum {}LAVE"
 
-#: keyboard/game_button.py:82 keyboard/game_button.py:97
+#: keyboard/game_button.py:107 keyboard/game_button.py:122
 msgid "➕ Взять еще карту"
 msgstr "➕ Take another card"
 
-#: keyboard/game_button.py:87
+#: keyboard/game_button.py:112
 msgid "✔️ Хватит, пусть играет"
 msgstr "✔️ Enough, let him play"
 
-#: keyboard/game_button.py:102
+#: keyboard/game_button.py:127
 msgid "✔️ Хватит, вскрываемся"
 msgstr "✔️ Enough, let's open up"
 
@@ -429,20 +467,51 @@ msgid "👛 Привязать кошелек"
 msgstr "👛 Link Wallet"
 
 #: keyboard/withdraw_button.py:10
+msgid "TonKeeper"
+msgstr "TonKeeper"
+
+#: keyboard/withdraw_button.py:14 keyboard/withdraw_button.py:23
 msgid "Отправить LAVE"
 msgstr "Send LAVE"
 
-#: keyboard/withdraw_button.py:14
+#: keyboard/withdraw_button.py:15 keyboard/withdraw_button.py:24
 msgid "Отправить TON"
 msgstr "Send TON"
 
-#: keyboard/withdraw_button.py:27
+#: keyboard/withdraw_button.py:19
+msgid "Другое"
+msgstr "Other"
+
+#: keyboard/withdraw_button.py:37
 msgid "✅ Подтвердить"
 msgstr "✅ Confirm"
 
-#: keyboard/withdraw_button.py:31
+#: keyboard/withdraw_button.py:41
 msgid "❌ Отменить"
 msgstr "❌ Cancel"
 
 #~ msgid "👥 Партнерская программа"
 #~ msgstr "👥 Affiliate program"
+
+#~ msgid ""
+#~ "📥 Используйте адрес ниже для пополнения баланса.\n"
+#~ "\n"
+#~ "Монета: Lavandos, (LAVE) или TON\n"
+#~ "Сеть: The Open Network – TON\n"
+#~ "Коментарий: <code>{}</code>\n"
+#~ "\n"
+#~ "<code>{}</code>\n"
+#~ "\n"
+#~ "<b>ЧТОБЫ ВАШИ СРЕДСТВА ПОПАЛИ НА ВАШ БАЛАНС ВАМ НУЖНО ОБЯЗАТЕЛЬНО ВВЕСТИ "
+#~ "КОМЕНТАРИЙ К ПЛАТЕЖУ, ИНАЧЕ ОНИ БУДУТ НАВСЕГДА УТЕРЯНЫ</b>"
+#~ msgstr ""
+#~ "📥 Use the address below to top up your balance.\n"
+#~ "\n"
+#~ "Coin: Lavandos, (LAVE) or TON\n"
+#~ "Network: The Open Network - TON\n"
+#~ "Commentary: <code>{}</code>\n"
+#~ "\n"
+#~ "<code>{}</code>\n"
+#~ "\n"
+#~ "<b>TO GET YOUR FUNDS TO YOUR BALANCE YOU NEED TO ENTER THE COMMENT TO THE "
+#~ "PAYMENT, OTHERWISE THEY WILL BE FOREVER LOST</b>"
