@@ -90,15 +90,15 @@ async def get_ton_payment():
             if comment.isdigit() == False:
                 logger("Comment not id", comment)
                 continue
-            
-            checker = await wallet_db.get_wallet(comment)
-            
+
+            checker = await wallet_db.get_lave(comment)
+
             if checker is None:
                 logger("User wasn't found", hash)
                 continue
 
             await wallet_db.set_ton(int(comment), value, True)
-            
+
             await dp.send_message(int(comment), "💸 Успешное пополнение {} TON !".format(value), parse_mode='HTML')
 
 async def get_lave_payment():
