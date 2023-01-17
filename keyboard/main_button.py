@@ -44,7 +44,7 @@ async def get_info_buttons(user_id : int) -> InlineKeyboardMarkup:
     )
     
     markup.row(
-        InlineKeyboardButton(text="назад", callback_data="main_start_back_button"),
+        InlineKeyboardButton(text=_("назад"), callback_data="main_start_back_button"),
         width=1
     )
     
@@ -58,7 +58,7 @@ async def get_profile_buttons(user_id: int, wallet=None):
     change_wallet_button = InlineKeyboardButton(text=_("👛 Сменить кошелек"), callback_data = f"connect_wallet_button")
     #ref_button = InlineKeyboardButton(text=_("👥 Партнерская программа"), callback_data="referals_button")
     
-    back_button = InlineKeyboardButton(text="назад", callback_data="main_start_back_button")
+    back_button = InlineKeyboardButton(text=_("назад"), callback_data="main_start_back_button")
 
     if wallet is None:
         change_wallet_button = InlineKeyboardButton(text = _('👛 Привязать кошелек'), callback_data = f"connect_wallet_button")

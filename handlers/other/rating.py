@@ -31,8 +31,8 @@ async def rating(ctx: types.CallbackQuery):
         top += f"ℹ️ {name} | 🕹 {user[2]} | 🏆 {user[3]} | ☹️ {user[4]}\n"
     
     await ctx.message.edit_text(
-        f"<b>🏆 Топ-10 игроков</b> \n\n" +
-        f"{top}" + 
+        _("<b>🏆 Топ-10 игроков</b> \n\n" +
+        "{}" + 
         "--------------------------" + "\n" +
-        f"🏅 Ты на <b>{rank}</b> месте", parse_mode="HTML",reply_markup=await get_info_button()
+        "🏅 Ты на <b>{}</b> месте").format(top, rank), parse_mode="HTML",reply_markup=await get_info_button()
     )

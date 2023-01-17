@@ -22,11 +22,14 @@ game_db = Game()
 async def get_games(ctx: types.CallbackQuery):
     user_id = ctx.from_user.id
     
-    await ctx.message.edit_text(
-        _("<b>🎰 Доступные игры</b>"), 
-        parse_mode="HTML",
-        reply_markup=await get_game_button(user_id)
-    )
+    try:
+        await ctx.message.edit_text(
+            _("<b>🎰 Доступные игры</b>"), 
+            parse_mode="HTML",
+            reply_markup=await get_game_button(user_id)
+        )
+    except:
+        await ctx.answer(_("🥲 Новых игр не найдено"))
 
 @start_game_router.callback_query(F.data == "create_game_button")
 async def set_game(ctx: types.CallbackQuery, state: FSMContext):
@@ -65,8 +68,8 @@ async def start_game(ctx: types.Message, state: FSMContext):
     
     lave_bet = int(lave_bet)
 
-    if game_count == 3:
-        await ctx.reply(_("❕ Ошибка, нельзя создать больше 3 игр"), reply_markup=await get_game_cancel_button())
+    if game_count >= 5:
+        await ctx.reply(_("❕ Ошибка, нельзя создать больше 5 игр"), reply_markup=await get_game_cancel_button())
         await state.clear()
         return
     

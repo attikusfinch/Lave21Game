@@ -79,12 +79,12 @@ async def get_gaming_button(game_id) -> InlineKeyboardMarkup:
     markup = InlineKeyboardBuilder()
     
     markup.row(
-        InlineKeyboardButton(text='➕ Взять еще карту',callback_data=f'{game_id}_add_card_button'),
+        InlineKeyboardButton(text=_('➕ Взять еще карту'),callback_data=f'{game_id}_add_card_button'),
         width=1
     )
     
     markup.row(
-        InlineKeyboardButton(text='✔️ Хватит, пусть играет',callback_data=f'{game_id}_pass_button'),
+        InlineKeyboardButton(text=_('✔️ Хватит, пусть играет'),callback_data=f'{game_id}_pass_button'),
         width=1
     )
     
@@ -94,12 +94,12 @@ async def get_banking_button(game_id) -> InlineKeyboardMarkup:
     markup = InlineKeyboardBuilder()
     
     markup.row(
-        InlineKeyboardButton(text='➕ Взять еще карту',callback_data=f'{game_id}_add_card_button'),
+        InlineKeyboardButton(text=_('➕ Взять еще карту'),callback_data=f'{game_id}_add_card_button'),
         width=1
     )
     
     markup.row(
-        InlineKeyboardButton(text='✔️ Хватит, вскрываемся',callback_data=f'{game_id}_end_game_button'),
+        InlineKeyboardButton(text=_('✔️ Хватит, вскрываемся'),callback_data=f'{game_id}_end_game_button'),
         width=1
     )
     

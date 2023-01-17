@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-14 17:54+0500\n"
-"PO-Revision-Date: 2023-01-14 17:54+0500\n"
+"POT-Creation-Date: 2023-01-17 17:19+0500\n"
+"PO-Revision-Date: 2023-01-17 17:23+0500\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -19,11 +19,15 @@ msgstr ""
 "Generated-By: Babel 2.11.0\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#: handlers/game/create.py:26
+#: handlers/game/create.py:27
 msgid "<b>🎰 Доступные игры</b>"
 msgstr "<b>🎰 Available games</b>"
 
-#: handlers/game/create.py:38
+#: handlers/game/create.py:32
+msgid "🥲 Новых игр не найдено"
+msgstr "🥲 No new games found"
+
+#: handlers/game/create.py:41
 msgid ""
 "<b>💵 Укажите сумму LAVE для создания игры (Минимум 1000)</b>\n"
 "--------------------------\n"
@@ -33,32 +37,32 @@ msgstr ""
 "--------------------------\n"
 "<i>💰 LAVE: {}</i>"
 
-#: handlers/game/create.py:57
+#: handlers/game/create.py:60
 msgid "❕ Отмена"
 msgstr "❕ Cancel"
 
-#: handlers/game/create.py:62 handlers/game/create.py:79
+#: handlers/game/create.py:65 handlers/game/create.py:82
 msgid "❕ Ошибка, сумма игры должна быть больше 1000 LAVE"
 msgstr "❕ Error, the sum of the game must be greater than 1000 LAVE"
 
-#: handlers/game/create.py:69
-msgid "❕ Ошибка, нельзя создать больше 3 игр"
-msgstr "❕ Error, you cannot create more than 3 games"
+#: handlers/game/create.py:72
+msgid "❕ Ошибка, нельзя создать больше 5 игр"
+msgstr "❕ Error, you cannot create more than 5 games"
 
-#: handlers/game/create.py:74
+#: handlers/game/create.py:77
 msgid "❕ Ошибка, введите /start"
 msgstr "❕ Error, enter /start"
 
-#: handlers/game/create.py:84
+#: handlers/game/create.py:87
 msgid "❕ Ошибка, на вашем балансе недостаточно LAVE"
 msgstr "❕ Error, not enough LAVE on your balance"
 
-#: handlers/game/create.py:91
+#: handlers/game/create.py:94
 msgid "🃏 Игра создана, ожидайте соперника."
 msgstr "🃏 Game established, wait for your opponent."
 
-#: handlers/game/create.py:119 handlers/game/create.py:127
-#: handlers/game/create.py:135
+#: handlers/game/create.py:122 handlers/game/create.py:130
+#: handlers/game/create.py:138
 msgid "Дальше пусто"
 msgstr "Nothing further"
 
@@ -71,6 +75,14 @@ msgstr ""
 "<b>🎰 Your games</b>\n"
 "--------------------------\n"
 "<i>Select the game you want to delete</i>"
+
+#: handlers/game/mygames.py:40
+msgid "❌ Активную игру отменить нельзя"
+msgstr "❌ An active game cannot be canceled"
+
+#: handlers/game/mygames.py:47
+msgid "❌ Игра отменена"
+msgstr "❌ Game canceled"
 
 #: handlers/game/play.py:34 handlers/game/play.py:54
 msgid "❕ Ошибка, игра уже идет, выберите другую игру или создайте новую."
@@ -155,11 +167,27 @@ msgstr ""
 "║ <b>Winner:</b> @{} [{}]\n"
 "╚ <b>Win amount:</b> <code>{}</code> LAVE"
 
-#: handlers/profile/referrals.py:21 handlers/profile/referrals.py:28
-#: handlers/profile/transfers.py:21 handlers/profile/transfers.py:28
-#: handlers/start/main.py:31 handlers/start/main.py:38
-msgid "<i>🌍 Выберите язык</i>"
-msgstr "<i>🌍 Choose your language</i>"
+#: handlers/other/rating.py:34
+msgid ""
+"<b>🏆 Топ-10 игроков</b> \n"
+"\n"
+"{}--------------------------\n"
+"🏅 Ты на <b>{}</b> месте"
+msgstr ""
+
+#: handlers/profile/deposit.py:15
+msgid ""
+"📥 Используйте адрес ниже для пополнения баланса.\n"
+"\n"
+"Монета: Lavandos, (LAVE) или TON\n"
+"Сеть: The Open Network – TON\n"
+"Коментарий: <code>{}</code>\n"
+"\n"
+"<code>{}</code>\n"
+"\n"
+"<b>ЧТОБЫ ВАШИ СРЕДСТВА ПОПАЛИ НА ВАШ БАЛАНС ВАМ НУЖНО ОБЯЗАТЕЛЬНО ВВЕСТИ "
+"КОМЕНТАРИЙ К ПЛАТЕЖУ, ИНАЧЕ ОНИ БУДУТ НАВСЕГДА УТЕРЯНЫ</b>"
+msgstr ""
 
 #: handlers/profile/wallet.py:22
 msgid ""
@@ -189,11 +217,65 @@ msgstr "❗️ Type /start"
 
 #: handlers/profile/wallet.py:58
 msgid ""
-"✅ Кошелек успешно закреплен за вашим аккаунтом, теперь вы можете пополнять "
-"и выводить ваши LAVE."
+"✅ Кошелек успешно закреплен за вашим аккаунтом, теперь вы можете выводить "
+"ваши LAVE."
 msgstr ""
 "✅ The wallet has been successfully assigned to your account, now you can "
-"deposit and withdraw your LAVE."
+"withdraw your LAVE."
+
+#: handlers/profile/withdraw.py:29
+msgid "👛 Привяжите кошелек"
+msgstr "👛 Link wallet"
+
+#: handlers/profile/withdraw.py:35
+msgid "👛 Вы уже создали запрос на вывод"
+msgstr "👛 You have already created a withdrawal request"
+
+#: handlers/profile/withdraw.py:40
+msgid "📤 Введите сумму LAVE для вывода"
+msgstr "📤 Enter the LAVE amount to withdraw"
+
+#: handlers/profile/withdraw.py:52 handlers/profile/withdraw.py:120
+msgid "❌ Отмена"
+msgstr "❌ Cancel"
+
+#: handlers/profile/withdraw.py:59
+msgid "❌ Количество должно быть числом"
+msgstr "❌ Quantity must be a number"
+
+#: handlers/profile/withdraw.py:68
+msgid "❌ Сумма должна быть больше 100 LAVE"
+msgstr "❌ The amount must be more than 100 LAVE"
+
+#: handlers/profile/withdraw.py:74
+msgid "❌ Недостаточно TON для вывода"
+msgstr "❌ Not enough TON to withdraw"
+
+#: handlers/profile/withdraw.py:80
+msgid "❌ Недостаточно LAVE для вывода"
+msgstr "❌ Not enough LAVE to output"
+
+#: handlers/profile/withdraw.py:87
+msgid ""
+"<b>📤 Подтверждение вывода</b>\n"
+"\n"
+"Сумма: <code>{}</code> LAVE\n"
+"Комиссия: <code>0.05</code> TON\n"
+"Адрес: <code>{}</code>"
+msgstr ""
+"<b>📤 Withdrawal confirmation</b>\n"
+"\n"
+"Amount: <code>{}</code> LAVE\n"
+"Commission: <code>0.05</code> TON\n"
+"Address: <code>{}</code>"
+
+#: handlers/profile/withdraw.py:113
+msgid "{} LAVE скоро будут переведены на ваш кошелек 👛"
+msgstr "{} LAVE will be transferred to your wallet soon 👛"
+
+#: handlers/start/main.py:31 handlers/start/main.py:38
+msgid "<i>🌍 Выберите язык</i>"
+msgstr "<i>🌍 Choose your language</i>"
 
 #: handlers/start/main.py:70 handlers/start/main.py:77
 msgid "👑 Добро пожаловать, <b>{}</b>"
@@ -233,6 +315,14 @@ msgstr ""
 "╠ Wins: <code>{}</code>\n"
 "╚ Playbacks: <code>{}</code>"
 
+#: keyboard/cancel_button.py:8 keyboard/cancel_button.py:15
+#: keyboard/cancel_button.py:22 keyboard/cancel_button.py:29
+#: keyboard/cancel_button.py:36 keyboard/game_button.py:44
+#: keyboard/game_button.py:72 keyboard/main_button.py:47
+#: keyboard/main_button.py:61 keyboard/withdraw_button.py:18
+msgid "назад"
+msgstr "back"
+
 #: keyboard/game_button.py:17
 msgid "😢 Активных игр сейчас нет"
 msgstr "😢 There are no active games now"
@@ -260,6 +350,18 @@ msgstr "😢 You haven't created games"
 #: keyboard/game_button.py:67
 msgid "❌ | 🎲 #Game_{} | Сумма {} LAVE"
 msgstr "❌ | 🎲 #Game_{} | Sum {}LAVE"
+
+#: keyboard/game_button.py:82 keyboard/game_button.py:97
+msgid "➕ Взять еще карту"
+msgstr "➕ Take another card"
+
+#: keyboard/game_button.py:87
+msgid "✔️ Хватит, пусть играет"
+msgstr "✔️ Enough, let him play"
+
+#: keyboard/game_button.py:102
+msgid "✔️ Хватит, вскрываемся"
+msgstr "✔️ Enough, let's open up"
 
 #: keyboard/main_button.py:18
 msgid "🃏 Играть"
@@ -305,10 +407,25 @@ msgstr "📥 Withdraw"
 msgid "👛 Сменить кошелек"
 msgstr "👛 Change Wallet"
 
-#: keyboard/main_button.py:59
-msgid "👥 Партнерская программа"
-msgstr "👥 Affiliate program"
-
 #: keyboard/main_button.py:64
 msgid "👛 Привязать кошелек"
 msgstr "👛 Link Wallet"
+
+#: keyboard/withdraw_button.py:10
+msgid "Отправить LAVE"
+msgstr "Send LAVE"
+
+#: keyboard/withdraw_button.py:14
+msgid "Отправить TON"
+msgstr "Send TON"
+
+#: keyboard/withdraw_button.py:27
+msgid "✅ Подтвердить"
+msgstr "✅ Confirm"
+
+#: keyboard/withdraw_button.py:31
+msgid "❌ Отменить"
+msgstr "❌ Cancel"
+
+#~ msgid "👥 Партнерская программа"
+#~ msgstr "👥 Affiliate program"

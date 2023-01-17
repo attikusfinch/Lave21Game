@@ -15,7 +15,7 @@ async def get_deposit_buttons(user_id):
             width=1)
     
     markup.row(
-            InlineKeyboardButton(text="назад", callback_data="profile_button"), 
+            InlineKeyboardButton(text=_("назад"), callback_data="profile_button"), 
             width=1)
     
     return markup.as_markup(resize_keyboard=True)

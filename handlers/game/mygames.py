@@ -37,12 +37,12 @@ async def delete_my_game(ctx: types.CallbackQuery):
     
     if data is False:
         await ctx.message.edit_text(
-            "❌ Активную игру отменить нельзя",
+            _("❌ Активную игру отменить нельзя"),
             reply_markup=await get_mygame_button(user_id))
         return
     
     await wallet_db.set_lave(user_id, amount, True)
     
     await ctx.message.edit_text(
-        "❌ Игра отменена",
+        _("❌ Игра отменена"),
         reply_markup=await get_mygame_button(user_id))
