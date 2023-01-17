@@ -1,10 +1,10 @@
 import aiosqlite
 
 class Game:
-    async def add_game(self, bet, bank_id):
+    async def add_game(self, bet, bank_id, game_type):
         async with aiosqlite.connect('database/game.db') as connection:
             async with connection.cursor() as cursor:
-                await cursor.execute("INSERT INTO game (bet, banking, bank_id, player_id, bank_step, player_step, bank_score, player_score) VALUES (?, ?, ?, ?, 0, 0, 0, 0)", (bet, False, bank_id, None))
+                await cursor.execute("INSERT INTO game (game_type, bet, banking, bank_id, player_id, bank_step, player_step, bank_score, player_score) VALUES (?, ?, ?, ?, ?, 0, 0, 0, 0)", (game_type, bet, False, bank_id, None))
                 await connection.commit()
                 return True
 
@@ -18,6 +18,17 @@ class Game:
                     return None
 
                 return data
+
+    async def get_game_type(self, game_id):
+        async with aiosqlite.connect('database/game.db') as connection:
+            async with connection.cursor() as cursor:
+                await cursor.execute("SELECT game_type FROM game WHERE id = ?", (game_id,))
+                data = await cursor.fetchone()
+
+                if data is None:
+                    return None
+
+                return data[0]
 
     async def get_bank_id(self, game_id):
         async with aiosqlite.connect('database/game.db') as connection:
@@ -75,7 +86,7 @@ class Game:
                 await cursor.execute("DELETE FROM game WHERE id = ?", (game_id,))
                 await connection.commit()
                 
-                return True, data[1]
+                return True, data[2]
 
     async def delete_game(self, game_id):
         async with aiosqlite.connect('database/game.db') as connection:
@@ -91,10 +102,10 @@ class Game:
                 
                 return True
 
-    async def get_free_games(self, user_id, page = 0):
+    async def get_free_games(self, user_id, page = 0, type = 1):
         async with aiosqlite.connect('database/game.db') as connection:
             async with connection.cursor() as cursor:
-                await cursor.execute("SELECT * FROM game WHERE player_id is NULL AND bank_id != ? LIMIT 5 OFFSET ?", (user_id, page*5,))
+                await cursor.execute("SELECT * FROM game WHERE player_id is NULL AND bank_id != ? AND game_type = ? LIMIT 5 OFFSET ?", (user_id, type, page*5,))
                 data = await cursor.fetchall()
                 
                 if len(data) == 0:
