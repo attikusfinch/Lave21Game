@@ -5,10 +5,10 @@ from aiogram import types
 from handlers.start.main import start_main_router
 from handlers.profile.wallet import start_wallet_router
 from handlers.profile.deposit import start_deposit_router
-from handlers.game.create import start_game_router
-from handlers.game.mygames import start_mygame_router
+from handlers.game.create_game import start_game_router
+from handlers.game.user_game import start_mygame_router
 from handlers.other.rating import start_rating_router
-from handlers.game.play import start_play_game_router
+from handlers.game.play_game import start_play_game_router
 from handlers.profile.withdraw import start_withdraw_router
 
 import asyncio

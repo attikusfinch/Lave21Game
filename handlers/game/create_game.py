@@ -68,7 +68,7 @@ async def start_game(ctx: types.Message, state: FSMContext):
     
     lave_bet = int(lave_bet)
 
-    if game_count >= 5:
+    if game_count > 5:
         await ctx.reply(_("❕ Ошибка, нельзя создать больше 5 игр"), reply_markup=await get_game_cancel_button())
         await state.clear()
         return
@@ -87,7 +87,7 @@ async def start_game(ctx: types.Message, state: FSMContext):
         await ctx.reply(_("❕ Ошибка, на вашем балансе недостаточно LAVE"), reply_markup=await get_game_cancel_button())
         await state.clear()
         return
-        
+
     await wallet_db.set_lave(user_id, lave_bet, False)
     await game_db.add_game(lave_bet, user_id)
     

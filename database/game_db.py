@@ -132,8 +132,9 @@ class Game:
     async def get_game_count(self, user_id):
         async with aiosqlite.connect('database/game.db') as connection:
             async with connection.cursor() as cursor:
-                await cursor.execute("SELECT COUNT(*) FROM game WHERE player_id = ?", (user_id,))
-                count = await cursor.fetchall()
+                await cursor.execute("SELECT COUNT(*) FROM game WHERE player_id = ? OR bank_id = ?", (user_id, user_id,))
+                count = await cursor.fetchone()
+                
                 return count[0]
 
     async def get_score(self, game_id, user = "bank"):
