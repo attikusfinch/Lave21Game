@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-17 17:19+0500\n"
-"PO-Revision-Date: 2023-01-17 17:23+0500\n"
+"POT-Creation-Date: 2023-01-17 17:32+0500\n"
+"PO-Revision-Date: 2023-01-17 17:32+0500\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -386,6 +386,10 @@ msgstr "🏆 Top 10 players"
 #: keyboard/main_button.py:37
 msgid "💬 Чат LAVE"
 msgstr "💬 LAVE Chat"
+
+#: keyboard/main_button.py:37
+msgid "https://t.me/lavetoken"
+msgstr "https://t.me/lave_eng"
 
 #: keyboard/main_button.py:38
 msgid "📕 Правила игры"

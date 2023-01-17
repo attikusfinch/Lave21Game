@@ -34,7 +34,7 @@ async def get_info_buttons(user_id : int) -> InlineKeyboardMarkup:
             width=1)
     
     markup.row(
-        InlineKeyboardButton(text=_("💬 Чат LAVE"), url="https://t.me/lavetoken"),
+        InlineKeyboardButton(text=_("💬 Чат LAVE"), url=_("https://t.me/lavetoken")),
         InlineKeyboardButton(text=_("📕 Правила игры"), url="https://telegra.ph/Dvadcat-odno-21Ochko--Pravila-01-08"), 
         width=2)
     
