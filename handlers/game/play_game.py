@@ -82,11 +82,11 @@ async def dice_game(ctx, game_id, user_id, bet):
     await game_db.add_score(game_id, bank_dice.dice.value, "bank")
     await game_db.add_score(game_id, player_dice.dice.value, "player")
 
-    if bank_dice.dice.value > player_dice.dice.value:
-        await end_game(game_id, bank_id, user_id, bank_id, _("Удача"))
+    if bank_dice.dice.value < player_dice.dice.value:
+        await end_game(game_id, bank_id, user_id, user_id, _("Удача"))
         return
     
-    await end_game(game_id, bank_id, user_id, user_id, _("Удача"))
+    await end_game(game_id, bank_id, user_id, bank_id, _("Удача"))
 
 async def card_game(ctx, game_id, user_id, bet):
     bank_score = await get_card()
