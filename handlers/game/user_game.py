@@ -38,7 +38,7 @@ async def get_my_games(ctx: types.CallbackQuery):
             reply_markup=await get_mygame_button(user_id, game_type)
         )
     except:
-        await ctx.answer("🥲 Новых игр не найдено")
+        await ctx.answer(_("🥲 Новых игр не найдено"))
 
 @start_mygame_router.callback_query(F.data.endswith("_delete_game_button"))
 async def delete_my_game(ctx: types.CallbackQuery):
