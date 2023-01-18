@@ -77,7 +77,7 @@ class Game:
     async def get_active_games(self, user_id):
         async with aiosqlite.connect('database/game.db') as connection:
             async with connection.cursor() as cursor:
-                await cursor.execute("SELECT * FROM game WHERE bank_id = ? AND banking is TRUE", (user_id))
+                await cursor.execute("SELECT * FROM game WHERE bank_id = ? AND banking is TRUE", (user_id,))
                 data = await cursor.fetchall()
 
                 if len(data) == 0:
