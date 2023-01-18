@@ -4,12 +4,16 @@ from create_bot import _
 
 from database.game_db import Game
 
-async def get_game_button(user_id, page: int = 0) -> InlineKeyboardMarkup:
+from utils.other import get_game_emoji
+
+game_db = Game()
+
+async def get_game_button(user_id, page: int = 0, type = 1) -> InlineKeyboardMarkup:
     markup = InlineKeyboardBuilder()
     
-    game_db = Game()
+    games = await game_db.get_free_games(user_id, page, type)
     
-    games = await game_db.get_free_games(user_id, page)
+    emoji = await get_game_emoji(type)
     
     if len(games) == 0:
         markup.row(
@@ -21,23 +25,29 @@ async def get_game_button(user_id, page: int = 0) -> InlineKeyboardMarkup:
     for game in games:
         markup.row(
             InlineKeyboardButton(
-                text=_('🎲 #Game_{} | Сумма {} LAVE').format(game[0], game[1]),
+                text=_('{} #Game_{} | Сумма {} LAVE').format(emoji, game[0], game[2]),
                 callback_data=f'{game[0]}_start_game_button'),
             width=1)
 
     markup.row(
-        InlineKeyboardButton(text='<<',callback_data=f'{page}_game_back_page'),
-        InlineKeyboardButton(text='>>',callback_data=f'{page}_game_next_page'),
+        InlineKeyboardButton(text='<<',callback_data=f'{page}_{type}_game_back_page'),
+        InlineKeyboardButton(text='>>',callback_data=f'{page}_{type}_game_next_page'),
         width=2)
-
+    
     markup.row(
-        InlineKeyboardButton(text=_('🃏 Мои игры'),callback_data='my_games_button'),
-        InlineKeyboardButton(text=_('↪️ Обновить'),callback_data='update_button'),
+        InlineKeyboardButton(text=_('🃏 21 очко'),callback_data='1_game_type_button'),
+        InlineKeyboardButton(text=_('🎲 Кости'),callback_data='2_game_type_button'),
         width=2)
-
+    
     markup.row(
-        InlineKeyboardButton(text=_('🕹️ Создать игру'),callback_data='create_game_button'),
+        InlineKeyboardButton(text=_('🕹️ Создать'),callback_data='create_game_button'),
         width=1
+    )
+
+    markup.row(
+        InlineKeyboardButton(text=_('🗂 Мои игры'),callback_data='my_games_button'),
+        InlineKeyboardButton(text=_('↪️ Обновить'),callback_data=f'{type}_update_button'),
+        width=2
         )
 
     markup.row(
@@ -47,12 +57,17 @@ async def get_game_button(user_id, page: int = 0) -> InlineKeyboardMarkup:
 
     return markup.as_markup(resize_keyboard=True)
 
-async def get_mygame_button(user_id) -> InlineKeyboardMarkup:
+async def get_mygame_button(user_id, active: bool = False) -> InlineKeyboardMarkup:
     markup = InlineKeyboardBuilder()
     
-    game_db = Game()
-    
+    action_emoji = "❌"
+    action_name = "delete"
     games = await game_db.get_user_games(user_id)
+    
+    if active:
+        action_emoji = "💎"
+        action_name = "continue"
+        games = await game_db.get_active_games(user_id)
     
     if len(games) == 0:
         markup.row(
@@ -62,12 +77,35 @@ async def get_mygame_button(user_id) -> InlineKeyboardMarkup:
             width=1)
 
     for game in games:
+        emoji = await get_game_emoji(game[1])
         markup.row(
             InlineKeyboardButton(
-                text=_('❌ | 🎲 #Game_{} | Сумма {} LAVE').format(game[0], game[1]),
-                callback_data=f'{game[0]}_delete_game_button'),
+                text=_('{} | {} #Game_{} | Сумма {} LAVE').format(action_emoji ,emoji, game[0], game[2]),
+                callback_data=f'{game[0]}_{action_name}_game_button'),
             width=1)
 
+    markup.row(
+        InlineKeyboardButton(text=_("❌ Удалить"), callback_data="0_my_games_button"),
+        InlineKeyboardButton(text=_("💎 Присоединиться"), callback_data="1_my_games_button"),
+        width=2
+        )
+
+    markup.row(
+        InlineKeyboardButton(text=_("назад"), callback_data="update_button"), 
+        width=1
+        )
+
+    return markup.as_markup(resize_keyboard=True)
+
+async def get_game_type_button() -> InlineKeyboardMarkup:
+    markup = InlineKeyboardBuilder()
+
+    markup.row(
+        InlineKeyboardButton(text=_('🃏 21 очко'),callback_data=f'1_game_choose_button'),
+        InlineKeyboardButton(text=_('🎲 Кости'),callback_data=f'2_game_choose_button'),
+        width=2
+    )
+    
     markup.row(
         InlineKeyboardButton(text=_("назад"), callback_data="update_button"), 
         width=1

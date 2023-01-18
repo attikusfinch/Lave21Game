@@ -66,6 +66,7 @@ async def create_game_table():
             await cursor.execute("""
                 CREATE TABLE IF NOT EXISTS game (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    game_type INTEGER NOT NULL,
                     bet INTEGER NOT NULL,
                     banking BOOL,
                     bank_id INTEGER NOT NULL,

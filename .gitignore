@@ -1,4 +1,10 @@
 .env
 .db
+game.db
+stats.db
+transactions.db
+users.db
+wallet.db
+withdraw.db
 config.env
 __pycache__

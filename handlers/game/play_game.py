@@ -6,15 +6,15 @@ from aiogram import Router, F, types
 from database.wallet_db import Wallet
 from database.stats_db import Stats, GlobalStats
 
+from keyboard.game_button import get_game_button, get_gaming_button, get_banking_button
 from keyboard.cancel_button import *
 
 from create_bot import dp
-
-from keyboard.game_button import get_game_button, get_gaming_button, get_banking_button
-
 from handlers.constants import cards
 
 import random
+import asyncio
+
 
 start_play_game_router = Router()
 
@@ -44,16 +44,53 @@ async def start_game(ctx: types.CallbackQuery):
         return
     
     await wallet_db.set_lave(user_id, bet, False)
+
+    game_type = await game_db.get_game_type(game_id)
     
+    await game_db.add_player(game_id, user_id)
+    
+    if game_type == 1: # add game types
+        await card_game(ctx, game_id, user_id, bet)
+    elif game_type == 2:
+        await dice_game(ctx, game_id, user_id, bet)
+
+async def dice_game(ctx, game_id, user_id, bet):
+    bank_id = int(await game_db.get_bank_id(game_id))
+    
+    bank_dice = await dp.send_dice(bank_id)
+    player_dice = await dp.send_dice(user_id)
+    
+    await ctx.message.edit_text(
+                          _("👊 <i>Вы кинули кубики <b>№ {}</b>" + 
+                          " на сумму {} LAVE, через 3 секунды, они решат вышу судьбу</i>").format(
+                              game_id,
+                              bet
+                              ),
+                        parse_mode="HTML")
+
+    await dp.send_message(bank_id,
+                          _("👊 @{} <i>Вы кинули кубики <b>№ {}</b>" + 
+                          " на сумму {} LAVE, через 3 секунды, они решат вышу судьбу</i>").format(
+                              ctx.from_user.username,
+                              game_id,
+                              bet
+                              ),
+                            parse_mode="HTML")
+    
+    await asyncio.sleep(3)
+    
+    await game_db.add_score(game_id, bank_dice.dice.value, "bank")
+    await game_db.add_score(game_id, player_dice.dice.value, "player")
+
+    if bank_dice.dice.value < player_dice.dice.value:
+        await end_game(game_id, bank_id, user_id, user_id, _("Удача"))
+        return
+    
+    await end_game(game_id, bank_id, user_id, bank_id, _("Удача"))
+
+async def card_game(ctx, game_id, user_id, bet):
     bank_score = await get_card()
     player_score = await get_card()
-
-    checker = await game_db.add_player(game_id, user_id) # двойная проверка, если всё будет работать, надо вырезать
-
-    if checker is False:
-        await ctx.message.edit_text(_("❕ Ошибка, игра уже идет, выберите другую игру или создайте новую."),
-                                    reply_markup=await get_game_button(user_id))
-        return
     
     bank_id = int(await game_db.get_bank_id(game_id))
 
@@ -123,7 +160,7 @@ async def pass_game(ctx: types.CallbackQuery):
     
     await send_score(bank_id, bank_count, bank_score, await get_banking_button(game_id))
 
-@start_play_game_router.callback_query(F.data.endswith("_add_card_button"))
+@start_play_game_router.callback_query(F.data.endswith("_add_card_button") | F.data.endswith("_continue_game_button"))
 async def play_game(ctx: types.CallbackQuery):
     game_id = ctx.data.split("_")[0]
     

@@ -9,7 +9,6 @@ from create_bot import _
 from aiogram.filters import Command
 from handlers.commands.bot_commands import BaseCommands
 from aiogram import F, Router
-from utils.other import remove_html_tags
 
 from aiogram.utils.i18n import I18n
 from settings import I18N_DOMAIN, LOCALES_DIR

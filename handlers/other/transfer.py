@@ -1,20 +1,13 @@
 from keyboard.main_button import *
-from database.game_db import Game
 from create_bot import _
-from aiogram import Router, F, types
+from aiogram import Router, types
 
 from database.wallet_db import Wallet
-from database.stats_db import Stats
 
 from keyboard.cancel_button import *
 
 from create_bot import dp
 
-from keyboard.game_button import get_game_button, get_gaming_button, get_banking_button
-
-from handlers.constants import cards
-
-import random
 from commands.bot_commands import BaseCommands
 
 # ПОКА-ЧТО ПУСТЬ ЛЕЖИТ
