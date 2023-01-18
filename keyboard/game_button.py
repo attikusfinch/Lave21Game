@@ -46,7 +46,7 @@ async def get_game_button(user_id, page: int = 0, type = 1) -> InlineKeyboardMar
 
     markup.row(
         InlineKeyboardButton(text=_('🗂 Мои игры'),callback_data='my_games_button'),
-        InlineKeyboardButton(text=_('↪️ Обновить'),callback_data='update_button'),
+        InlineKeyboardButton(text=_('↪️ Обновить'),callback_data=f'{type}_update_button'),
         width=2
         )
 
