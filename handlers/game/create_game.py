@@ -116,7 +116,7 @@ async def start_game(ctx: types.Message, state: FSMContext):
     await wallet_db.set_lave(user_id, lave_bet, False)
     await game_db.add_game(lave_bet, user_id, game_type)
     
-    emoji = await get_game_emoji(game_type)
+    emoji = await get_game_emoji(int(game_type))
     
     message = _("{} Игра создана, ожидайте соперника.").format(emoji)
     

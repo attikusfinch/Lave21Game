@@ -73,6 +73,17 @@ class Game:
                     return []
                 
                 return data
+
+    async def get_active_games(self, user_id):
+        async with aiosqlite.connect('database/game.db') as connection:
+            async with connection.cursor() as cursor:
+                await cursor.execute("SELECT * FROM game WHERE bank_id = ? OR player_id = ?", (user_id, user_id))
+                data = await cursor.fetchall()
+
+                if len(data) == 0:
+                    return []
+                
+                return data
             
     async def delete_user_game(self, game_id):
         async with aiosqlite.connect('database/game.db') as connection:

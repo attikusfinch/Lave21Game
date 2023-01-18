@@ -57,10 +57,17 @@ async def get_game_button(user_id, page: int = 0, type = 1) -> InlineKeyboardMar
 
     return markup.as_markup(resize_keyboard=True)
 
-async def get_mygame_button(user_id) -> InlineKeyboardMarkup:
+async def get_mygame_button(user_id, active: bool = False) -> InlineKeyboardMarkup:
     markup = InlineKeyboardBuilder()
-        
+    
+    action_emoji = "❌"
+    action_name = "delete"
     games = await game_db.get_user_games(user_id)
+    
+    if active:
+        action_emoji = "💎"
+        action_name = "continue"
+        games = await game_db.get_active_games(user_id)
     
     if len(games) == 0:
         markup.row(
@@ -73,9 +80,15 @@ async def get_mygame_button(user_id) -> InlineKeyboardMarkup:
         emoji = await get_game_emoji(game[1])
         markup.row(
             InlineKeyboardButton(
-                text=_('❌ | {} #Game_{} | Сумма {} LAVE').format(emoji, game[0], game[2]),
-                callback_data=f'{game[0]}_delete_game_button'),
+                text=_('{} | {} #Game_{} | Сумма {} LAVE').format(action_emoji ,emoji, game[0], game[2]),
+                callback_data=f'{game[0]}_{action_name}_game_button'),
             width=1)
+
+    markup.row(
+        InlineKeyboardButton(text=_("❌ Удалить"), callback_data="0_my_games_button"),
+        InlineKeyboardButton(text=_("💎 Присоединиться"), callback_data="1_my_games_button"),
+        width=2
+        )
 
     markup.row(
         InlineKeyboardButton(text=_("назад"), callback_data="update_button"), 
