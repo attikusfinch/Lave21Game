@@ -14,7 +14,7 @@ lave_headers = {
     'accept': 'application/json'
     }
 lave_params = {
-    'account': f'{get_raw_address("EQAcA0M-ZKFEiA3cktZLwoaUF3K4-abel9LKpTesUMn1NXI2")}',
+    'account': f'{get_raw_address(WALLET)}',
     'jetton_master': f'0:65de083a0007638233b6668354e50e44cd4225f1730d66b8b1f19e5d26690751', # hardcode address cuz api bag
     'limit': '25'
 }
