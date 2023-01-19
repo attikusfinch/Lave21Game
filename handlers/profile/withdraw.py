@@ -87,7 +87,7 @@ async def get_amount(ctx: types.Message, state: FSMContext):
         _("<b>📤 Подтверждение вывода</b>" + "\n" + "\n" +
 
         "Сумма: <code>{}</code> LAVE" + "\n" + 
-        "Комиссия: <code>0.05</code> TON" + "\n" +
+        "Комиссия: <code>0.1</code> TON" + "\n" +
         "Адрес: <code>{}</code>").format(amount, wallet),
         parse_mode="HTML",
         reply_markup=await get_withdraw_buttons(user_id)
