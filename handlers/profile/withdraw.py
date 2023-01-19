@@ -106,7 +106,7 @@ async def accept_approve(ctx: types.CallbackQuery, state: FSMContext):
     wallet = await wallet_db.get_wallet(user_id)
     
     await wallet_db.set_lave(user_id, amount, False)
-    await wallet_db.set_ton(user_id, 0.05, False)
+    await wallet_db.set_ton(user_id, 0.1, False)
     
     await withdraw_db.set_withdraw(user_id, wallet, amount)
     
