@@ -46,7 +46,7 @@ async def start():
     while True:
         print("Withdraw updated")
         await get_lave_payment()
-        #await get_ton_payment()
+        await get_ton_payment()
         await sleep()
 
 async def get_ton_payment():
