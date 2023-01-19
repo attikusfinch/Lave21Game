@@ -87,7 +87,7 @@ async def get_amount(ctx: types.Message, state: FSMContext):
         _("<b>📤 Подтверждение вывода</b>" + "\n" + "\n" +
 
         "Сумма: <code>{}</code> LAVE" + "\n" + 
-        "Комиссия: <code>0.05</code> TON" + "\n" +
+        "Комиссия: <code>0.1</code> TON" + "\n" +
         "Адрес: <code>{}</code>").format(amount, wallet),
         parse_mode="HTML",
         reply_markup=await get_withdraw_buttons(user_id)
@@ -106,7 +106,7 @@ async def accept_approve(ctx: types.CallbackQuery, state: FSMContext):
     wallet = await wallet_db.get_wallet(user_id)
     
     await wallet_db.set_lave(user_id, amount, False)
-    await wallet_db.set_ton(user_id, 0.05, False)
+    await wallet_db.set_ton(user_id, 0.1, False)
     
     await withdraw_db.set_withdraw(user_id, wallet, amount)
     
