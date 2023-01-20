@@ -16,15 +16,6 @@ async def get_deposit_buttons(user_id):
             width=2)
     
     markup.row(
-            InlineKeyboardButton(text=_("Другое"), callback_data="_"), 
-            width=1)
-    
-    markup.row(
-            InlineKeyboardButton(text=_("Отправить LAVE"), url=send_lave(user_id)), 
-            InlineKeyboardButton(text=_("Отправить TON"), url=send_ton(user_id)),
-            width=2)
-    
-    markup.row(
             InlineKeyboardButton(text=_("назад"), callback_data="profile_button"), 
             width=1)
     
