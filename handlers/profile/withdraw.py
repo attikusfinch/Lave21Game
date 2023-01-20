@@ -70,7 +70,7 @@ async def get_amount(ctx: types.Message, state: FSMContext):
         return
     
     ton = await wallet_db.get_ton(user_id)
-    if ton < 0.1:
+    if ton < 0.05:
         await ctx.reply(_("❌ Недостаточно TON для вывода"), reply_markup=await get_profile_button())
         await state.clear()
         return

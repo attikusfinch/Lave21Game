@@ -17,7 +17,7 @@ TOKEN = os.getenv("TOKEN")
 WALLET = os.getenv("WALLET")
 TONCENTER_API_TOKEN = os.getenv("TONCENTER_API_TOKEN")
 
-LAVE = "EQDT2VHQm7atk8ppYPj-ka_rZYkWuI5JLnl3s9hoFr-Eg5ol"
+LAVE = os.getenv("LAVE") # чтобы его узнать, отправьте lave сами себе и посмотрите в explorer'е
 
 wallet_mnemonics = json.loads(os.getenv("MNEMONIC"))
 
