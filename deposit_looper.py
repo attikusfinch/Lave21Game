@@ -6,6 +6,7 @@ from database.transaction_db import Transactions
 from database.wallet_db import Wallet
 from utils.converter import from_nano
 from utils.checker import get_raw_address
+from utils.checker import Cell
 
 from create_bot import dp, _
 
@@ -45,7 +46,7 @@ async def start():
     while True:
         print("Withdraw updated")
         await get_lave_payment()
-        await get_ton_payment()
+        #await get_ton_payment()
         await sleep()
 
 async def get_ton_payment():
