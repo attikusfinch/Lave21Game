@@ -15,7 +15,7 @@ lave_headers = {
     }
 lave_params = {
     'account': f'{get_raw_address(WALLET)}',
-    'jetton_master': f'0:65de083a0007638233b6668354e50e44cd4225f1730d66b8b1f19e5d26690751', # hardcode address cuz api bag
+    'jetton_master': f'{get_raw_address(LAVE)}',
     'limit': '25'
 }
 
@@ -46,7 +46,7 @@ async def start():
     while True:
         print("Withdraw updated")
         await get_lave_payment()
-        #await get_ton_payment()
+        await get_ton_payment()
         await sleep()
 
 async def get_ton_payment():
@@ -137,7 +137,6 @@ async def get_lave_payment():
             checker = await transactions_db.check_transaction(jetton_date, comment) # add comment, for more security cuz it can be that 2 lt will be the same
 
             if checker is True:
-                logger("Already exist", jetton_date)
                 continue
             
             await transactions_db.add_transaction(jetton_date, comment)

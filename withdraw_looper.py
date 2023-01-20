@@ -111,7 +111,7 @@ async def withdraw_lave(user_id, address, count):
 
     query = wallet.create_transfer_message(
         to_addr=LAVE, # LAVE contract address
-        amount=to_nano(0.1, "ton"), # TON amount for send
+        amount=to_nano(0.05, "ton"), # TON amount for send
         seqno=parse_response(client.seqno(wallet.address.to_string())[0]), # seqno from seed phrase
         payload=jetton_data
     )

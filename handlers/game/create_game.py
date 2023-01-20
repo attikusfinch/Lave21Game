@@ -20,7 +20,7 @@ start_game_router = Router()
 wallet_db = Wallet()
 game_db = Game()
 
-@start_game_router.callback_query(F.data.in_({"play_button", "update_button"}) | F.data.endswith(("_game_type_button", "_update_button")))
+@start_game_router.callback_query(F.data.in_({"play_button", "update_button"}) | F.data.endswith({"_game_type_button", "_update_button"}))
 async def get_games(ctx: types.CallbackQuery):
     user_id = ctx.from_user.id
     
