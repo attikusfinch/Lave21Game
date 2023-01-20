@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-18 14:41+0500\n"
+"POT-Creation-Date: 2023-01-20 18:41+0500\n"
 "PO-Revision-Date: 2023-01-14 12:04+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -195,9 +195,11 @@ msgid ""
 "<code>{}</code>\n"
 "\n"
 "<b>ЧТОБЫ ВАШИ СРЕДСТВА ПОПАЛИ НА ВАШ БАЛАНС ВАМ НУЖНО ОБЯЗАТЕЛЬНО ВВЕСТИ "
-"КОМЕНТАРИЙ К ПЛАТЕЖУ, ИНАЧЕ ОНИ БУДУТ НАВСЕГДА УТЕРЯНЫ. И КРИПТОВАЛЮТА "
-"TONCOIN НЕ ИСПОЛЬЗУЕТСЯ В БОТЕ, А НУЖНА ЧТОБ ОПЛАТИТЬ КОМИССИЮ ПРИ ВЫВОДЕ"
-" ВАШИХ СРЕДСТВ.</b>"
+"КОМЕНТАРИЙ К ПЛАТЕЖУ, ИНАЧЕ ОНИ БУДУТ НАВСЕГДА УТЕРЯНЫ. ТАКЖЕ "
+"АДМИНИСТРАЦИЯ НЕ НЕСЕТ НИКАКОЙ ОТВЕТСТВЕННОСТИ ПРИ НЕ УКАЗАНИИ ПАРОЛЯ "
+"И/ИЛИ ПЕРЕВОДОВ С ДРУГИХ КОШЕЛЬКОВ КРОМЕ TONKEEPER. И ПОМНИТЕ, "
+"КРИПТОВАЛЮТА TONCOIN НЕ ИСПОЛЬЗУЕТСЯ В БОТЕ, А НУЖНА ЧТОБ ОПЛАТИТЬ "
+"КОМИССИЮ ПРИ ВЫВОДЕ ВАШИХ СРЕДСТВ.</b>"
 msgstr ""
 
 #: handlers/profile/wallet.py:22
@@ -304,7 +306,7 @@ msgstr ""
 #: keyboard/cancel_button.py:36 keyboard/game_button.py:54
 #: keyboard/game_button.py:94 keyboard/game_button.py:110
 #: keyboard/main_button.py:47 keyboard/main_button.py:61
-#: keyboard/withdraw_button.py:28
+#: keyboard/withdraw_button.py:19
 msgid "назад"
 msgstr ""
 
@@ -420,23 +422,19 @@ msgstr ""
 msgid "TonKeeper"
 msgstr ""
 
-#: keyboard/withdraw_button.py:14 keyboard/withdraw_button.py:23
+#: keyboard/withdraw_button.py:14
 msgid "Отправить LAVE"
 msgstr ""
 
-#: keyboard/withdraw_button.py:15 keyboard/withdraw_button.py:24
+#: keyboard/withdraw_button.py:15
 msgid "Отправить TON"
 msgstr ""
 
-#: keyboard/withdraw_button.py:19
-msgid "Другое"
-msgstr ""
-
-#: keyboard/withdraw_button.py:37
+#: keyboard/withdraw_button.py:28
 msgid "✅ Подтвердить"
 msgstr ""
 
-#: keyboard/withdraw_button.py:41
+#: keyboard/withdraw_button.py:32
 msgid "❌ Отменить"
 msgstr ""
 
@@ -489,5 +487,26 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "❌ | {} #Game_{} | Сумма {} LAVE"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "📥 Используйте адрес ниже для пополнения баланса.\n"
+#~ "\n"
+#~ "Монета: Lavandos, (LAVE) или TON\n"
+#~ "Сеть: The Open Network – TON\n"
+#~ "Коментарий: <code>{}</code>\n"
+#~ "\n"
+#~ "<code>{}</code>\n"
+#~ "\n"
+#~ "<b>ЧТОБЫ ВАШИ СРЕДСТВА ПОПАЛИ НА ВАШ "
+#~ "БАЛАНС ВАМ НУЖНО ОБЯЗАТЕЛЬНО ВВЕСТИ "
+#~ "КОМЕНТАРИЙ К ПЛАТЕЖУ, ИНАЧЕ ОНИ БУДУТ"
+#~ " НАВСЕГДА УТЕРЯНЫ. И КРИПТОВАЛЮТА TONCOIN"
+#~ " НЕ ИСПОЛЬЗУЕТСЯ В БОТЕ, А НУЖНА "
+#~ "ЧТОБ ОПЛАТИТЬ КОМИССИЮ ПРИ ВЫВОДЕ ВАШИХ"
+#~ " СРЕДСТВ.</b>"
+#~ msgstr ""
+
+#~ msgid "Другое"
 #~ msgstr ""
 

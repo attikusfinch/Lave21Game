@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-18 14:41+0500\n"
-"PO-Revision-Date: 2023-01-18 14:42+0500\n"
+"POT-Creation-Date: 2023-01-20 18:41+0500\n"
+"PO-Revision-Date: 2023-01-20 18:41+0500\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -145,7 +145,7 @@ msgstr "Got the golden set"
 
 #: handlers/game/play_game.py:209
 msgid "Набрал 21"
-msgstr "scored 21"
+msgstr "Scored 21"
 
 #: handlers/game/play_game.py:215
 msgid "Перебор очков"
@@ -224,9 +224,11 @@ msgid ""
 "<code>{}</code>\n"
 "\n"
 "<b>ЧТОБЫ ВАШИ СРЕДСТВА ПОПАЛИ НА ВАШ БАЛАНС ВАМ НУЖНО ОБЯЗАТЕЛЬНО ВВЕСТИ "
-"КОМЕНТАРИЙ К ПЛАТЕЖУ, ИНАЧЕ ОНИ БУДУТ НАВСЕГДА УТЕРЯНЫ. И КРИПТОВАЛЮТА "
-"TONCOIN НЕ ИСПОЛЬЗУЕТСЯ В БОТЕ, А НУЖНА ЧТОБ ОПЛАТИТЬ КОМИССИЮ ПРИ ВЫВОДЕ "
-"ВАШИХ СРЕДСТВ.</b>"
+"КОМЕНТАРИЙ К ПЛАТЕЖУ, ИНАЧЕ ОНИ БУДУТ НАВСЕГДА УТЕРЯНЫ. ТАКЖЕ АДМИНИСТРАЦИЯ "
+"НЕ НЕСЕТ НИКАКОЙ ОТВЕТСТВЕННОСТИ ПРИ НЕ УКАЗАНИИ ПАРОЛЯ И/ИЛИ ПЕРЕВОДОВ С "
+"ДРУГИХ КОШЕЛЬКОВ КРОМЕ TONKEEPER. И ПОМНИТЕ, КРИПТОВАЛЮТА TONCOIN НЕ "
+"ИСПОЛЬЗУЕТСЯ В БОТЕ, А НУЖНА ЧТОБ ОПЛАТИТЬ КОМИССИЮ ПРИ ВЫВОДЕ ВАШИХ СРЕДСТВ."
+"</b>"
 msgstr ""
 "📥 Use the address below to top up your balance.\n"
 "\n"
@@ -237,9 +239,11 @@ msgstr ""
 "<code>{}</code>\n"
 "\n"
 "<b>TO GET YOUR FUNDS TO YOUR BALANCE YOU NEED TO ENTER THE COMMENT TO THE "
-"PAYMENT, OTHERWISE THEY WILL BE FOREVER LOST. AND THE CRYPTOCURRENCY TONCOIN "
-"IS NOT USED IN THE BOT, AND IS NEEDED TO PAY THE FEE FOR THE WITHDRAWAL OF "
-"YOUR FUNDS.</b>"
+"PAYMENT, OTHERWISE THEY WILL BE FOREVER LOST. ALSO, THE ADMINISTRATION IS "
+"NOT RESPONSIBLE FOR NOT SPECIFYING A PASSWORD AND/OR TRANSFERS FROM WALLETS "
+"OTHER THAN TONKEEPER. AND REMEMBER, THE CRYPTOCURRENCY TONCOIN IS NOT USED "
+"IN THE BOT, BUT IS NEEDED TO PAY THE FEE FOR THE WITHDRAWAL OF YOUR FUNDS.</"
+"b>"
 
 #: handlers/profile/wallet.py:22
 msgid ""
@@ -372,7 +376,7 @@ msgstr ""
 #: keyboard/cancel_button.py:36 keyboard/game_button.py:54
 #: keyboard/game_button.py:94 keyboard/game_button.py:110
 #: keyboard/main_button.py:47 keyboard/main_button.py:61
-#: keyboard/withdraw_button.py:28
+#: keyboard/withdraw_button.py:19
 msgid "назад"
 msgstr "back"
 
@@ -488,23 +492,19 @@ msgstr "👛 Link Wallet"
 msgid "TonKeeper"
 msgstr "TonKeeper"
 
-#: keyboard/withdraw_button.py:14 keyboard/withdraw_button.py:23
+#: keyboard/withdraw_button.py:14
 msgid "Отправить LAVE"
 msgstr "Send LAVE"
 
-#: keyboard/withdraw_button.py:15 keyboard/withdraw_button.py:24
+#: keyboard/withdraw_button.py:15
 msgid "Отправить TON"
 msgstr "Send TON"
 
-#: keyboard/withdraw_button.py:19
-msgid "Другое"
-msgstr "Other"
-
-#: keyboard/withdraw_button.py:37
+#: keyboard/withdraw_button.py:28
 msgid "✅ Подтвердить"
 msgstr "✅ Confirm"
 
-#: keyboard/withdraw_button.py:41
+#: keyboard/withdraw_button.py:32
 msgid "❌ Отменить"
 msgstr "❌ Cancel"
 
@@ -533,3 +533,33 @@ msgstr "❌ Cancel"
 #~ "\n"
 #~ "<b>TO GET YOUR FUNDS TO YOUR BALANCE YOU NEED TO ENTER THE COMMENT TO THE "
 #~ "PAYMENT, OTHERWISE THEY WILL BE FOREVER LOST</b>"
+
+#~ msgid ""
+#~ "📥 Используйте адрес ниже для пополнения баланса.\n"
+#~ "\n"
+#~ "Монета: Lavandos, (LAVE) или TON\n"
+#~ "Сеть: The Open Network – TON\n"
+#~ "Коментарий: <code>{}</code>\n"
+#~ "\n"
+#~ "<code>{}</code>\n"
+#~ "\n"
+#~ "<b>ЧТОБЫ ВАШИ СРЕДСТВА ПОПАЛИ НА ВАШ БАЛАНС ВАМ НУЖНО ОБЯЗАТЕЛЬНО ВВЕСТИ "
+#~ "КОМЕНТАРИЙ К ПЛАТЕЖУ, ИНАЧЕ ОНИ БУДУТ НАВСЕГДА УТЕРЯНЫ. И КРИПТОВАЛЮТА "
+#~ "TONCOIN НЕ ИСПОЛЬЗУЕТСЯ В БОТЕ, А НУЖНА ЧТОБ ОПЛАТИТЬ КОМИССИЮ ПРИ ВЫВОДЕ "
+#~ "ВАШИХ СРЕДСТВ.</b>"
+#~ msgstr ""
+#~ "📥 Use the address below to top up your balance.\n"
+#~ "\n"
+#~ "Coin: Lavandos, (LAVE) or TON\n"
+#~ "Network: The Open Network - TON\n"
+#~ "Commentary: <code>{}</code>\n"
+#~ "\n"
+#~ "<code>{}</code>\n"
+#~ "\n"
+#~ "<b>TO GET YOUR FUNDS TO YOUR BALANCE YOU NEED TO ENTER THE COMMENT TO THE "
+#~ "PAYMENT, OTHERWISE THEY WILL BE FOREVER LOST. AND THE CRYPTOCURRENCY "
+#~ "TONCOIN IS NOT USED IN THE BOT, AND IS NEEDED TO PAY THE FEE FOR THE "
+#~ "WITHDRAWAL OF YOUR FUNDS.</b>"
+
+#~ msgid "Другое"
+#~ msgstr "Other"
