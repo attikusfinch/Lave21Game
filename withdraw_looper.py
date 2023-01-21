@@ -50,7 +50,7 @@ class AbstractTonClient(ABC):
                         int(result["balance"]), currency_to_show)
 
         return results
-    
+
     def seqno(self, addr: str):
         addr = prepare_address(addr)
         result = self._run(self.provider.raw_run_method(addr, "seqno", []))
@@ -121,10 +121,11 @@ async def withdraw_lave(user_id, address, count):
     response = requests.post('https://tonapi.io/v1/send/boc', headers=headers, json=data)
 
     if response.status_code == 200:
-        print(f"💸 Вывод {count} LAVE на кошелёк {WALLET} прошел успешно | {user_id}")
+        print(response.content)
+        print(f"💸 Вывод {count} LAVE на кошелёк {address} прошел успешно | {user_id}")
     else:
         print(response.content)
-        print(f"😢 Ошибка отпраки токенов на кошелёк: {WALLET} | {user_id}" + "\n" + 
+        print(f"😢 Ошибка отпраки токенов на кошелёк: {address} | {user_id}" + "\n" + 
                               "Сообщите в тех. поддержку")
 
 async def main():
