@@ -14,7 +14,7 @@ import requests
 from abc import ABC, abstractmethod
 from tvm_valuetypes import serialize_tvm_stack
 
-from settings import wallet_mnemonics, TONCENTER_API_TOKEN, WALLET, LAVE
+from settings import wallet_mnemonics, TONCENTER_API_TOKEN, LAVE
 import nest_asyncio
 
 nest_asyncio.apply()
