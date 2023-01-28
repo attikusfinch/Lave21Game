@@ -10,13 +10,15 @@ from utils.checker import Cell
 
 from create_bot import dp, _
 
+import logging
+
 lave_headers = {
     'accept': 'application/json'
     }
 lave_params = {
     'account': f'{get_raw_address(WALLET)}',
     'jetton_master': f'{get_raw_address(LAVE)}',
-    'limit': '25'
+    'limit': '250'
 }
 
 ton_headers = {
@@ -25,7 +27,7 @@ ton_headers = {
 }
 ton_params = {
     'address': f'{WALLET}',
-    'limit': '25',
+    'limit': '250',
     'to_lt': '0',
     'archival': 'false'
 }
@@ -34,7 +36,7 @@ transactions_db = Transactions()
 wallet_db = Wallet()
 
 def logger(reason, jetton_date):
-    print(
+    logging.info(
         f"Reason: {reason}" + "\n" +
         f"Date: {jetton_date}"
         )
@@ -156,4 +158,7 @@ async def get_lave_payment():
     await asyncio.sleep(5)
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO, filename="deposit_looper.log", filemode="w",
+                    format="%(asctime)s %(levelname)s %(message)s")
+    
     asyncio.run(start())
