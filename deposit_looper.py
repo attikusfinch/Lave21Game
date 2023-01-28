@@ -18,7 +18,7 @@ lave_headers = {
 lave_params = {
     'account': f'{get_raw_address(WALLET)}',
     'jetton_master': f'{get_raw_address(LAVE)}',
-    'limit': '250'
+    'limit': '1000'
 }
 
 ton_headers = {
@@ -27,7 +27,7 @@ ton_headers = {
 }
 ton_params = {
     'address': f'{WALLET}',
-    'limit': '250',
+    'limit': '1000',
     'to_lt': '0',
     'archival': 'false'
 }
