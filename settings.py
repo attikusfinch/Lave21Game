@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 
 import json
 
+LAVE_JETTON_ADDRESS = "0:65de083a0007638233b6668354e50e44cd4225f1730d66b8b1f19e5d26690751"
+
 WORKDIR = Path(__file__).parent
 I18N_DOMAIN = "lave_bot"
 LOCALES_DIR = WORKDIR / "locales"

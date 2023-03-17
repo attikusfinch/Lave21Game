@@ -1,4 +1,4 @@
-from settings import WALLET, LAVE, TONCENTER_API_TOKEN
+from settings import WALLET, LAVE, TONCENTER_API_TOKEN, LAVE_JETTON_ADDRESS
 import asyncio
 
 from utils.wallet_api import TonApi
@@ -123,6 +123,11 @@ async def get_lave_payment():
                 continue
             
             transfer = action["JettonTransfer"]
+            
+            jetton = transfer["jetton"] 
+            if jetton["address"] != LAVE_JETTON_ADDRESS:
+                logger("Jetton isn't LAVE", jetton["address"])
+                continue
             
             amount = from_nano(transfer["amount"])
             
