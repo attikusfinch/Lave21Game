@@ -68,15 +68,30 @@ async def create_game_table():
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     game_type INTEGER NOT NULL,
                     bet INTEGER NOT NULL,
+                    creator_id INTEGER NOT NULL,
+                    player_id INTEGER
+                );
+            """)
+
+            await cursor.execute("""
+                CREATE TABLE IF NOT EXISTS poker(
+                    id INTEGER NOT NULL,
                     banking BOOL,
-                    bank_id INTEGER NOT NULL,
-                    player_id INTEGER,
                     bank_step INTEGER NOT NULL,
                     player_step INTEGER NOT NULL,
                     bank_score INTEGER NOT NULL,
                     player_score INTEGER NOT NULL
                 );
             """)
+            
+            await cursor.execute("""
+                CREATE TABLE IF NOT EXISTS dice(
+                    id INTEGER NOT NULL,
+                    bank_score INTEGER NOT NULL,
+                    player_score INTEGER NOT NULL
+                );
+            """)
+
             await connection.commit()
 
 async def create_transaction_table():

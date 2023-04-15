@@ -9,11 +9,11 @@ from keyboard.cancel_button import *
 
 from create_bot import dp
 
-start_rating_router = Router()
+rating_router = Router()
 
 stats_db = Stats()
 
-@start_rating_router.callback_query(F.data == "rating_button")
+@rating_router.callback_query(F.data == "rating_button")
 async def rating(ctx: types.CallbackQuery):
     user_id = ctx.from_user.id
 

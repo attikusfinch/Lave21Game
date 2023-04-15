@@ -6,5 +6,8 @@ transactions.db
 users.db
 wallet.db
 withdraw.db
+dice.db
+poker.db
 config.env
+Lave21Game.rar
 __pycache__

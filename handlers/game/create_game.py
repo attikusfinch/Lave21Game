@@ -2,7 +2,7 @@ from aiogram import types
 from aiogram import Router
 from keyboard.main_button import *
 from database.wallet_db import Wallet
-from database.game_db import Game
+from database.game_db import Game, Dice, Poker
 from create_bot import _
 from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
@@ -15,12 +15,16 @@ from keyboard.game_button import get_game_button, get_game_type_button
 
 from utils.other import get_game_emoji
 
-start_game_router = Router()
+game_router = Router()
+
+game_db = Game()
+dice_db = Dice()
+poker_db = Poker()
 
 wallet_db = Wallet()
 game_db = Game()
 
-@start_game_router.callback_query(F.data.in_({"play_button", "update_button"}) | F.data.endswith(("_game_type_button", "_update_button")))
+@game_router.callback_query(F.data.in_({"play_button", "update_button"}) | F.data.endswith(("_game_type_button", "_update_button")))
 async def get_games(ctx: types.CallbackQuery):
     user_id = ctx.from_user.id
     
@@ -35,10 +39,11 @@ async def get_games(ctx: types.CallbackQuery):
             parse_mode="HTML",
             reply_markup=await get_game_button(user_id, 0, game_type)
         )
-    except:
+    except Exception as e:
+        print(e)
         await ctx.answer(_("🥲 Новых игр не найдено"))
 
-@start_game_router.callback_query(F.data == "create_game_button")
+@game_router.callback_query(F.data == "create_game_button")
 async def set_game_type(ctx: types.CallbackQuery, state: FSMContext):    
     await ctx.message.edit_text(
         _("<b>⭐️ Выберите тип игры</b>"), 
@@ -48,7 +53,7 @@ async def set_game_type(ctx: types.CallbackQuery, state: FSMContext):
 
     await state.set_state(GameState.get_game_type)
 
-@start_game_router.callback_query(GameState.get_game_type)
+@game_router.callback_query(GameState.get_game_type)
 async def set_game(ctx: types.CallbackQuery, state: FSMContext):
     user_id = ctx.from_user.id
     
@@ -68,7 +73,7 @@ async def set_game(ctx: types.CallbackQuery, state: FSMContext):
 
     await state.set_state(GameState.get_lave_count)
 
-@start_game_router.message(GameState.get_lave_count)
+@game_router.message(GameState.get_lave_count)
 async def start_game(ctx: types.Message, state: FSMContext):
     lave_bet = ctx.text
     
@@ -114,7 +119,12 @@ async def start_game(ctx: types.Message, state: FSMContext):
         return
 
     await wallet_db.set_lave(user_id, lave_bet, False)
-    await game_db.add_game(lave_bet, user_id, game_type)
+    game_id = await game_db.add_game(user_id, lave_bet, game_type)
+    
+    if int(game_type) == 1:
+        await poker_db.add_game(game_id)
+    elif int(game_type) == 2:
+        await dice_db.add_game(game_id)
     
     emoji = await get_game_emoji(int(game_type))
     
@@ -136,7 +146,7 @@ async def start_game(ctx: types.Message, state: FSMContext):
     
     await state.clear()
 
-@start_game_router.callback_query(F.data.endswith("_game_next_page"))
+@game_router.callback_query(F.data.endswith("_game_next_page"))
 async def next_page(ctx: types.CallbackQuery):
     page = int(ctx.data.split("_")[0])
     type = int(ctx.data.split("_")[1])
@@ -150,7 +160,7 @@ async def next_page(ctx: types.CallbackQuery):
     else:
         await ctx.answer(_("Дальше пусто"))
 
-@start_game_router.callback_query(F.data.endswith("_game_back_page"))
+@game_router.callback_query(F.data.endswith("_game_back_page"))
 async def prev_page(ctx: types.CallbackQuery):
     page =int(ctx.data.split("_")[0])
     type = int(ctx.data.split("_")[1])

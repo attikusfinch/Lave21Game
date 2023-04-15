@@ -12,11 +12,11 @@ from handlers.profile.states import WalletState
 
 from utils.checker import detect_address
 
-start_wallet_router = Router()
+wallet_router = Router()
 
 wallet_db = Wallet()
 
-@start_wallet_router.callback_query(F.data == "connect_wallet_button")
+@wallet_router.callback_query(F.data == "connect_wallet_button")
 async def set_wallet(ctx: types.CallbackQuery, state: FSMContext):    
     await ctx.message.edit_text(
         _("✍️ Введите адрес своего кошелька." + "\n" + "\n" + 
@@ -30,7 +30,7 @@ async def set_wallet(ctx: types.CallbackQuery, state: FSMContext):
     
     await state.set_state(WalletState.get_wallet)
 
-@start_wallet_router.message(WalletState.get_wallet)
+@wallet_router.message(WalletState.get_wallet)
 async def get_wallet(ctx: types.Message, state: FSMContext):
     user_id = ctx.from_user.id
     

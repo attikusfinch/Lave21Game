@@ -5,9 +5,9 @@ from aiogram import F, Router
 from settings import WALLET
 from keyboard.withdraw_button import get_deposit_buttons
 
-start_deposit_router = Router()
+deposit_router = Router()
 
-@start_deposit_router.callback_query(F.data == "deposit_button")
+@deposit_router.callback_query(F.data == "deposit_button")
 async def deposit(ctx):
     user_id = ctx.from_user.id
     

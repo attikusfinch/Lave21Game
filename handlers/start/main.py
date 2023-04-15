@@ -13,15 +13,15 @@ from aiogram import F, Router
 from aiogram.utils.i18n import I18n
 from settings import I18N_DOMAIN, LOCALES_DIR
 
-start_main_router = Router()
+main_router = Router()
 
 user_db = Users()
 stat_db = Stats()
 global_stat_db = GlobalStats()
 wallet_db = Wallet()
 
-@start_main_router.message(Command(BaseCommands.SETTINGS))
-@start_main_router.callback_query(F.data == "settings_button")
+@main_router.message(Command(BaseCommands.SETTINGS))
+@main_router.callback_query(F.data == "settings_button")
 async def settings(ctx):
     user_id = ctx.from_user.id
     
@@ -39,9 +39,9 @@ async def settings(ctx):
         reply_markup=await get_language_buttons(user_id)
     )
 
-@start_main_router.message(Command(BaseCommands.START))
-@start_main_router.callback_query(F.data == "main_start_back_button")
-@start_main_router.callback_query(F.data.endswith("_lang_button"))
+@main_router.message(Command(BaseCommands.START))
+@main_router.callback_query(F.data == "main_start_back_button")
+@main_router.callback_query(F.data.endswith("_lang_button"))
 async def start(ctx: types.CallbackQuery):
     user_id = ctx.from_user.id
     
@@ -78,7 +78,7 @@ async def start(ctx: types.CallbackQuery):
             reply_markup=await get_start_buttons(user_id)
         )
 
-@start_main_router.callback_query(F.data == "info_button")
+@main_router.callback_query(F.data == "info_button")
 async def info(ctx: types.CallbackQuery):
     user_id = ctx.from_user.id
     
@@ -91,7 +91,7 @@ async def info(ctx: types.CallbackQuery):
             reply_markup=await get_info_buttons(user_id)
         )
 
-@start_main_router.callback_query(F.data == "profile_button")
+@main_router.callback_query(F.data == "profile_button")
 async def profile(ctx: types.CallbackQuery):
     user_id = ctx.from_user.id
     

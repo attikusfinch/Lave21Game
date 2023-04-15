@@ -15,12 +15,12 @@ from handlers.profile.states import WithdrawState
 from keyboard.cancel_button import *
 
 
-start_withdraw_router = Router()
+withdraw_router = Router()
 
 wallet_db = Wallet()
 withdraw_db = WithdrawHistory()
 
-@start_withdraw_router.callback_query(F.data == "withdraw_button")
+@withdraw_router.callback_query(F.data == "withdraw_button")
 async def withdraw(ctx: types.CallbackQuery, state: FSMContext):
     user_id = ctx.from_user.id
 
@@ -44,7 +44,7 @@ async def withdraw(ctx: types.CallbackQuery, state: FSMContext):
     
     await state.set_state(WithdrawState.get_amount)
 
-@start_withdraw_router.message(WithdrawState.get_amount)
+@withdraw_router.message(WithdrawState.get_amount)
 async def get_amount(ctx: types.Message, state: FSMContext):
     user_id = ctx.from_user.id
 
@@ -95,7 +95,7 @@ async def get_amount(ctx: types.Message, state: FSMContext):
     
     await state.set_state(WithdrawState.get_approve)
 
-@start_withdraw_router.callback_query(WithdrawState.get_approve, F.data == "comfirm_withdraw_button")
+@withdraw_router.callback_query(WithdrawState.get_approve, F.data == "comfirm_withdraw_button")
 async def accept_approve(ctx: types.CallbackQuery, state: FSMContext):
     user_id = ctx.from_user.id
     
@@ -113,7 +113,7 @@ async def accept_approve(ctx: types.CallbackQuery, state: FSMContext):
     await ctx.message.edit_text(_("{} LAVE скоро будут переведены на ваш кошелек 👛").format(amount), parse_mode="HTML")
     await state.clear()
 
-@start_withdraw_router.callback_query(WithdrawState.get_approve, F.data == "cancel_withdraw_button")
+@withdraw_router.callback_query(WithdrawState.get_approve, F.data == "cancel_withdraw_button")
 async def cancel_approve(ctx: types.CallbackQuery, state: FSMContext):
     user_id = ctx.from_user.id
     

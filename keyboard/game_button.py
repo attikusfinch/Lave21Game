@@ -2,11 +2,12 @@ from aiogram.types import InlineKeyboardMarkup
 from aiogram.utils.keyboard import InlineKeyboardBuilder, InlineKeyboardButton
 from create_bot import _
 
-from database.game_db import Game
+from database.game_db import Game, Poker
 
 from utils.other import get_game_emoji
 
 game_db = Game()
+poker_db = Poker()
 
 async def get_game_button(user_id, page: int = 0, type = 1) -> InlineKeyboardMarkup:
     markup = InlineKeyboardBuilder()
@@ -103,6 +104,8 @@ async def get_game_type_button() -> InlineKeyboardMarkup:
     markup.row(
         InlineKeyboardButton(text=_('🃏 21 очко'),callback_data=f'1_game_choose_button'),
         InlineKeyboardButton(text=_('🎲 Кости'),callback_data=f'2_game_choose_button'),
+        InlineKeyboardButton(text=_('💣 Сапёр'),callback_data=f'3_game_choose_button'),
+        InlineKeyboardButton(text=_('💰 Клад'),callback_data=f'4_game_choose_button'),
         width=2
     )
     

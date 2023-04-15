@@ -2,14 +2,16 @@ from create_bot import bot, dp
 from data import create_db
 from aiogram import types
 
-from handlers.start.main import start_main_router
-from handlers.profile.wallet import start_wallet_router
-from handlers.profile.deposit import start_deposit_router
-from handlers.game.create_game import start_game_router
-from handlers.game.user_game import start_mygame_router
-from handlers.other.rating import start_rating_router
-from handlers.game.play_game import start_play_game_router
-from handlers.profile.withdraw import start_withdraw_router
+from handlers.start.main import main_router
+from handlers.profile.wallet import wallet_router
+from handlers.profile.deposit import deposit_router
+from handlers.game.create_game import game_router
+from handlers.game.user_game import mygame_router
+from handlers.other.rating import rating_router
+from handlers.game.play_game import main_game_menu_router
+from handlers.profile.withdraw import withdraw_router
+from handlers.game.minigames.poker import poker_router
+from handlers.game.minigames.dice import dice_router
 
 import asyncio
 
@@ -21,14 +23,16 @@ async def set_up_commands(dp):
 async def register():
     await create_db()
 
-    bot.include_router(start_main_router)
-    bot.include_router(start_wallet_router)
-    bot.include_router(start_game_router)
-    bot.include_router(start_rating_router)
-    bot.include_router(start_mygame_router)
-    bot.include_router(start_play_game_router)
-    bot.include_router(start_deposit_router)
-    bot.include_router(start_withdraw_router)
+    bot.include_router(main_router)
+    bot.include_router(wallet_router)
+    bot.include_router(game_router)
+    bot.include_router(poker_router)
+    bot.include_router(dice_router)
+    bot.include_router(rating_router)
+    bot.include_router(mygame_router)
+    bot.include_router(main_game_menu_router)
+    bot.include_router(deposit_router)
+    bot.include_router(withdraw_router)
 
     try:
         await bot.start_polling(dp)
