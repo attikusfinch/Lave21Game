@@ -60,6 +60,11 @@ async def set_game(ctx: types.CallbackQuery, state: FSMContext):
     
     game_type = ctx.data.split("_")[0]
     
+    if game_type not in [0, 1, 2]:
+        await ctx.answer("Выберите тип игры")
+        await state.set_state(GameState.get_game_type)
+        return
+    
     await state.update_data(game_type=game_type)
     
     balance = await wallet_db.get_lave(user_id)
