@@ -12,6 +12,7 @@ from handlers.game.play_game import main_game_menu_router
 from handlers.profile.withdraw import withdraw_router
 from handlers.game.minigames.poker import poker_router
 from handlers.game.minigames.dice import dice_router
+from handlers.game.minigames.rps import rps_router
 
 import asyncio
 
@@ -33,6 +34,7 @@ async def register():
     bot.include_router(main_game_menu_router)
     bot.include_router(deposit_router)
     bot.include_router(withdraw_router)
+    bot.include_router(rps_router)
 
     try:
         await bot.start_polling(dp)

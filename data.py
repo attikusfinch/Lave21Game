@@ -91,6 +91,29 @@ async def create_game_table():
                     player_score INTEGER NOT NULL
                 );
             """)
+            
+            await cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS rps(
+                    id INTEGER NOT NULL,
+                    bank_score INTEGER,
+                    player_score INTEGER,
+                    bank_choose INTEGER,
+                    player_choose INTEGER
+                );
+                """
+            )
+
+            await cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS treasure(
+                    id INTEGER NOT NULL,
+                    treasure_field STRING NOT NULL,
+                    bank_score INTEGER,
+                    player_score INTEGER
+                );
+                """
+            )
 
             await connection.commit()
 

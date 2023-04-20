@@ -3,8 +3,10 @@ import re
 async def get_game_emoji(type):
     if type == 1:
         return "🃏"
-    if type == 2:
+    elif type == 2:
         return "🎲"
+    elif type == 3:
+        return "🖐"
     
     return None
 

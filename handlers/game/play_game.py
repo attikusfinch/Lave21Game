@@ -1,5 +1,5 @@
 from keyboard.main_button import *
-from database.game_db import Game, Dice, Poker
+from database.game_db import Game, Dice, Poker, Rps
 from create_bot import _
 from aiogram import Router, F, types
 
@@ -13,12 +13,14 @@ from create_bot import dp
 
 from handlers.game.minigames.dice import dice_game
 from handlers.game.minigames.poker import card_game
+from handlers.game.minigames.rps import rps_game
 
 main_game_menu_router = Router()
 
 game_db = Game()
 dice_db = Dice()
 poker_db = Poker()
+rps_db = Rps()
 
 wallet_db = Wallet()
 stats_db = Stats()
@@ -54,6 +56,8 @@ async def start_game(ctx: types.CallbackQuery):
         await card_game(ctx, game_id, user_id, bet)
     elif game_type == 2:
         await dice_game(ctx, game_id, user_id, bet)
+    elif game_type == 3:
+        await rps_game(ctx, game_id, user_id, bet)
 
 async def end_game(game_id, bank_id, player_id, win_id, reason):
     bank_username = (await dp.get_chat(bank_id)).username
@@ -67,6 +71,9 @@ async def end_game(game_id, bank_id, player_id, win_id, reason):
     elif game_type == 2:
         bank_score = await dice_db.get_score(game_id)
         player_score = await dice_db.get_score(game_id, "player")
+    elif game_type == 3:
+        bank_score = await rps_db.get_score(game_id)
+        player_score = await rps_db.get_score(game_id, "player")
     
     bet = await game_db.get_bet(game_id)
     
@@ -88,13 +95,17 @@ async def end_game(game_id, bank_id, player_id, win_id, reason):
         bet
     )
 
-    bank_win = (bank_id == win_id)
+    if win_id is not None:
+        bank_win = (bank_id == win_id)
 
-    await stats_db.update_stats(player_id, (not bank_win))
-    await stats_db.update_stats(bank_id, bank_win)
+        await stats_db.update_stats(player_id, (not bank_win))
+        await stats_db.update_stats(bank_id, bank_win)
 
-    await wallet_db.set_lave(win_id, bet*2)
-    
+        await wallet_db.set_lave(win_id, bet*2)
+    else:
+        await wallet_db.set_lave(player_id, bet)
+        await wallet_db.set_lave(bank_id, bet)
+
     await global_stats_db.set_game_count()
     await global_stats_db.set_lave_count(bet)
 
@@ -104,6 +115,8 @@ async def end_game(game_id, bank_id, player_id, win_id, reason):
         await poker_db.delete_game(game_id)
     elif game_type == 2:
         await dice_db.delete_game(game_id)
+    elif game_type == 3:
+        await rps_db.delete_game(game_id)
 
     await dp.send_message(bank_id, msg, parse_mode="HTML", reply_markup=await get_game_button(bank_id))
     await dp.send_message(player_id, msg, parse_mode="HTML", reply_markup=await get_game_button(player_id))

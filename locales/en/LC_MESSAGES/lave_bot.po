@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-20 18:41+0500\n"
-"PO-Revision-Date: 2023-01-20 18:41+0500\n"
+"POT-Creation-Date: 2023-04-19 21:09+0500\n"
+"PO-Revision-Date: 2023-04-19 21:11+0500\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -19,19 +19,19 @@ msgstr ""
 "Generated-By: Babel 2.11.0\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#: handlers/game/create_game.py:34
+#: handlers/game/create_game.py:39
 msgid "<b>🎰 Доступные игры</b>"
 msgstr "<b>🎰 Available games</b>"
 
-#: handlers/game/create_game.py:39 handlers/game/user_game.py:41
+#: handlers/game/create_game.py:45 handlers/game/user_game.py:44
 msgid "🥲 Новых игр не найдено"
 msgstr "🥲 No new games found"
 
-#: handlers/game/create_game.py:44
+#: handlers/game/create_game.py:50
 msgid "<b>⭐️ Выберите тип игры</b>"
 msgstr "<b>⭐️ Select a game type</b>"
 
-#: handlers/game/create_game.py:62
+#: handlers/game/create_game.py:68
 msgid ""
 "<b>💵 Укажите сумму LAVE для создания игры (Минимум 1000)</b>\n"
 "--------------------------\n"
@@ -41,127 +41,46 @@ msgstr ""
 "--------------------------\n"
 "<i>💰 LAVE: {}</i>"
 
-#: handlers/game/create_game.py:85
+#: handlers/game/create_game.py:91
 msgid "❕ Отмена"
 msgstr "❕ Cancel"
 
-#: handlers/game/create_game.py:90 handlers/game/create_game.py:107
+#: handlers/game/create_game.py:96 handlers/game/create_game.py:113
 msgid "❕ Ошибка, сумма игры должна быть больше 1000 LAVE"
 msgstr "❕ Error, the sum of the game must be greater than 1000 LAVE"
 
-#: handlers/game/create_game.py:97
+#: handlers/game/create_game.py:103
 msgid "❕ Ошибка, нельзя создать больше 5 игр"
 msgstr "❕ Error, you cannot create more than 5 games"
 
-#: handlers/game/create_game.py:102
+#: handlers/game/create_game.py:108
 msgid "❕ Ошибка, введите /start"
 msgstr "❕ Error, enter /start"
 
-#: handlers/game/create_game.py:112
+#: handlers/game/create_game.py:118
 msgid "❕ Ошибка, на вашем балансе недостаточно LAVE"
 msgstr "❕ Error, not enough LAVE on your balance"
 
-#: handlers/game/create_game.py:121
+#: handlers/game/create_game.py:134
 msgid "{} Игра создана, ожидайте соперника."
 msgstr "{} Game created, wait for the opponent."
 
-#: handlers/game/create_game.py:151 handlers/game/create_game.py:161
-#: handlers/game/create_game.py:169
+#: handlers/game/create_game.py:164 handlers/game/create_game.py:174
+#: handlers/game/create_game.py:182
 msgid "Дальше пусто"
 msgstr "Nothing further"
 
-#: handlers/game/play_game.py:34
+#: handlers/game/play_game.py:37
 msgid "❕ Ошибка, игра уже идет, выберите другую игру или создайте новую."
 msgstr ""
 "❕ Error, the game is already running, select another game or create a new "
 "one."
 
-#: handlers/game/play_game.py:42
+#: handlers/game/play_game.py:45
 msgid "❕ Ошибка, на вашем балансе недостаточно LAVE."
 msgstr "❕ Error, there is not enough LAVE on your balance."
 
-#: handlers/game/play_game.py:64
-msgid ""
-"👊 <i>Вы кинули кубики <b>№ {}</b> на сумму {} LAVE, через 3 секунды, они "
-"решат вышу судьбу</i>"
-msgstr ""
-"👊 <i>You rolled dice <b># {}</b> for the amount of {} LAVE, in 3 seconds, "
-"they will decide your fate</i>"
-
-#: handlers/game/play_game.py:72
-msgid ""
-"👊 @{} <i>Вы кинули кубики <b>№ {}</b> на сумму {} LAVE, через 3 секунды, "
-"они решат вышу судьбу</i>"
-msgstr ""
-"👊 @{} <i>You rolled dice <b># {}</b> to the amount of {} LAVE, in 3 "
-"seconds, they will decide your fate</i>"
-
-#: handlers/game/play_game.py:86 handlers/game/play_game.py:89
-msgid "Удача"
-msgstr "Luck"
-
-#: handlers/game/play_game.py:103
-msgid "👌 <i>Вы успешно присоединились к игре <b>№ {}</b> на сумму {} LAVE</i>"
-msgstr ""
-"👌 <i>You have successfully joined the game <b>№ {}</b> for the amount of {} "
-"LAVE</i>"
-
-#: handlers/game/play_game.py:111
-msgid ""
-"👌 @{} <i>присоединился к игре <b>№ {}</b> на сумму {} LAVE , ожидайте свой "
-"ход.</i>"
-msgstr ""
-"👌 @{} <i>joined the game <b>№ {}</b> for the amount of {} LAVE , wait for "
-"your turn.</i>"
-
-#: handlers/game/play_game.py:128
-msgid "🃏 @{} взял(а) карту."
-msgstr "🃏 @{} took a card."
-
-#: handlers/game/play_game.py:138
-msgid "❕ Ошибка, игра уже закончилась."
-msgstr "❕ Error, the game is already over."
-
-#: handlers/game/play_game.py:148
-msgid "✅ Вы закончили игру, теперь играет @{}, ожидайте результат."
-msgstr ""
-"✅ You have finished the game, now @{} is playing, wait for the result."
-
-#: handlers/game/play_game.py:153
-msgid "✔️ @{} закончил играть и у него {} карт, банкуй"
-msgstr "✔️ @{} has finished playing and has {} cards, bankui"
-
-#: handlers/game/play_game.py:172 handlers/game/play_game.py:228
-msgid "Игра закончена"
-msgstr "Game's over"
-
-#: handlers/game/play_game.py:183
-msgid "Сейчас ходит банк, ждите"
-msgstr "Now the bank is walking, wait"
-
-#: handlers/game/play_game.py:204
-msgid "Набрал золотой сет"
-msgstr "Got the golden set"
-
-#: handlers/game/play_game.py:209
-msgid "Набрал 21"
-msgstr "Scored 21"
-
-#: handlers/game/play_game.py:215
-msgid "Перебор очков"
-msgstr "Bust points"
-
-#: handlers/game/play_game.py:243 handlers/game/play_game.py:252
-msgid ""
-"ℹ️ Количество карт: {}\n"
-"\n"
-"🔄 Количество очков: {}"
-msgstr ""
-"ℹ️ Number of cards: {}\n"
-"\n"
-"🔄 Number of points: {}"
-
-#: handlers/game/play_game.py:270
+#: handlers/game/play_game.py:82
 msgid ""
 "<b>🕹 Результат игры №</b> {}:\n"
 "╠ @{} - {}  ⚔️ @{} - {}\n"
@@ -173,7 +92,7 @@ msgstr ""
 "║ <b>Winner:</b> @{} [{}]\n"
 "╚ <b>Win amount:</b> <code>{}</code> LAVE"
 
-#: handlers/game/user_game.py:25
+#: handlers/game/user_game.py:28
 msgid ""
 "<b>🎰 Ваши игры</b>\n"
 "--------------------------\n"
@@ -181,7 +100,7 @@ msgstr ""
 "<b>🎰 Your games</b>\n"
 "--------------------------\n"
 
-#: handlers/game/user_game.py:30
+#: handlers/game/user_game.py:33
 msgid ""
 "<i>Выберите игру, которую вы хотите продолжить. Помните! Что при "
 "продолжении, вы автоматически возьмете 1 карту.</i>"
@@ -189,17 +108,118 @@ msgstr ""
 "<i>Select the game you want to continue. Remember! That when you continue, "
 "you will automatically draw 1 card.</i>"
 
-#: handlers/game/user_game.py:32
+#: handlers/game/user_game.py:35
 msgid "<i>Выберите игру, которую вы хотите удалить</i>"
 msgstr "<i>Select the game you want to delete</i>"
 
-#: handlers/game/user_game.py:52
+#: handlers/game/user_game.py:64
 msgid "❌ Активную игру отменить нельзя"
 msgstr "❌ An active game cannot be canceled"
 
-#: handlers/game/user_game.py:59
+#: handlers/game/user_game.py:71
 msgid "❌ Игра отменена"
 msgstr "❌ Game canceled"
+
+#: handlers/game/minigames/dice.py:32
+msgid ""
+"👊 <i>Вы кинули кубики <b>№ {}</b> на сумму {} LAVE, через 3 секунды, они "
+"решат вышу судьбу</i>"
+msgstr ""
+"👊 <i>You rolled dice <b># {}</b> for the amount of {} LAVE, in 3 seconds, "
+"they will decide your fate</i>"
+
+#: handlers/game/minigames/dice.py:40
+msgid ""
+"👊 @{} <i>Вы кинули кубики <b>№ {}</b> на сумму {} LAVE, через 3 секунды, "
+"они решат вышу судьбу</i>"
+msgstr ""
+"👊 @{} <i>You rolled dice <b># {}</b> to the amount of {} LAVE, in 3 "
+"seconds, they will decide your fate</i>"
+
+#: handlers/game/minigames/dice.py:54 handlers/game/minigames/dice.py:57
+msgid "Удача"
+msgstr "Luck"
+
+#: handlers/game/minigames/poker.py:39
+msgid "👌 <i>Вы успешно присоединились к игре <b>№ {}</b> на сумму {} LAVE</i>"
+msgstr ""
+"👌 <i>You have successfully joined the game <b>№ {}</b> for the amount of {} "
+"LAVE</i>"
+
+#: handlers/game/minigames/poker.py:47
+msgid ""
+"👌 @{} <i>присоединился к игре <b>№ {}</b> на сумму {} LAVE , ожидайте свой "
+"ход.</i>"
+msgstr ""
+"👌 @{} <i>joined the game <b>№ {}</b> for the amount of {} LAVE , wait for "
+"your turn.</i>"
+
+#: handlers/game/minigames/poker.py:64
+msgid "🃏 @{} взял(а) карту."
+msgstr "🃏 @{} took a card."
+
+#: handlers/game/minigames/poker.py:74
+msgid "❕ Ошибка, игра уже закончилась."
+msgstr "❕ Error, the game is already over."
+
+#: handlers/game/minigames/poker.py:85
+msgid "✅ Вы закончили игру, теперь играет @{}, ожидайте результат."
+msgstr ""
+"✅ You have finished the game, now @{} is playing, wait for the result."
+
+#: handlers/game/minigames/poker.py:90
+msgid "✔️ @{} закончил играть и у него {} карт, банкуй"
+msgstr "✔️ @{} has finished playing and has {} cards, bankui"
+
+#: handlers/game/minigames/poker.py:109 handlers/game/minigames/poker.py:166
+msgid "Игра закончена"
+msgstr "Game's over"
+
+#: handlers/game/minigames/poker.py:121
+msgid "Сейчас ходит банк, ждите"
+msgstr "Now the bank is walking, wait"
+
+#: handlers/game/minigames/poker.py:142
+msgid "Набрал золотой сет"
+msgstr "Got the golden set"
+
+#: handlers/game/minigames/poker.py:147
+msgid "Набрал 21"
+msgstr "Scored 21"
+
+#: handlers/game/minigames/poker.py:153
+msgid "Перебор очков"
+msgstr "Bust points"
+
+#: handlers/game/minigames/poker.py:181 handlers/game/minigames/poker.py:190
+msgid ""
+"ℹ️ Количество карт: {}\n"
+"\n"
+"🔄 Количество очков: {}"
+msgstr ""
+"ℹ️ Number of cards: {}\n"
+"\n"
+"🔄 Number of points: {}"
+
+#: handlers/game/minigames/rps.py:28
+msgid "👊 <i>Выберите действие</i>"
+msgstr "👊 <i>Select an action</i>"
+
+#: handlers/game/minigames/rps.py:59
+msgid "👊 <i>Выберите действие и узнайте результат битвы</i>"
+msgstr "👊 <i>Choose an action and see the result of the battle</i>"
+
+#: handlers/game/minigames/rps.py:64
+msgid "👊 <i>Ваш выбор сделан, ждите соперника</i>"
+msgstr "👊 <i>Your choice is made, wait for your opponent</i>"
+
+#: handlers/game/minigames/rps.py:76
+msgid "{} Ничья"
+msgstr "{} Tie"
+
+#: handlers/game/minigames/rps.py:79 handlers/game/minigames/rps.py:82
+msgid "{}/{}"
+msgstr "{}/{}"
 
 #: handlers/other/rating.py:34
 msgid ""
@@ -373,66 +393,82 @@ msgstr ""
 
 #: keyboard/cancel_button.py:8 keyboard/cancel_button.py:15
 #: keyboard/cancel_button.py:22 keyboard/cancel_button.py:29
-#: keyboard/cancel_button.py:36 keyboard/game_button.py:54
-#: keyboard/game_button.py:94 keyboard/game_button.py:110
+#: keyboard/cancel_button.py:36 keyboard/game_button.py:56
+#: keyboard/game_button.py:96 keyboard/game_button.py:113
 #: keyboard/main_button.py:47 keyboard/main_button.py:61
 #: keyboard/withdraw_button.py:19
 msgid "назад"
 msgstr "back"
 
-#: keyboard/game_button.py:21
+#: keyboard/game_button.py:22
 msgid "😢 Активных игр сейчас нет"
 msgstr "😢 There are no active games now"
 
-#: keyboard/game_button.py:28
+#: keyboard/game_button.py:29
 msgid "{} #Game_{} | Сумма {} LAVE"
 msgstr "{} #Game_{} | Sum {} LAVE"
 
-#: keyboard/game_button.py:38 keyboard/game_button.py:104
+#: keyboard/game_button.py:39 keyboard/game_button.py:106
 msgid "🃏 21 очко"
 msgstr "🃏 21 points"
 
-#: keyboard/game_button.py:39 keyboard/game_button.py:105
+#: keyboard/game_button.py:40 keyboard/game_button.py:107
 msgid "🎲 Кости"
 msgstr "🎲 Dice"
 
-#: keyboard/game_button.py:43
+#: keyboard/game_button.py:41 keyboard/game_button.py:108
+msgid "🖐 КНБ"
+msgstr "🖐 RPS"
+
+#: keyboard/game_button.py:45
 msgid "🕹️ Создать"
 msgstr "🕹️ Create"
 
-#: keyboard/game_button.py:48
+#: keyboard/game_button.py:50
 msgid "🗂 Мои игры"
 msgstr "🗂 My games"
 
-#: keyboard/game_button.py:49
+#: keyboard/game_button.py:51
 msgid "↪️ Обновить"
 msgstr "↪️ Refresh"
 
-#: keyboard/game_button.py:75
+#: keyboard/game_button.py:77
 msgid "😢 Вы не создали игры"
 msgstr "😢 You haven't created games"
 
-#: keyboard/game_button.py:83
+#: keyboard/game_button.py:85
 msgid "{} | {} #Game_{} | Сумма {} LAVE"
 msgstr "{} | {} #Game_{} | Sum {}LAVE"
 
-#: keyboard/game_button.py:88
+#: keyboard/game_button.py:90
 msgid "❌ Удалить"
 msgstr "❌ Delete"
 
-#: keyboard/game_button.py:89
+#: keyboard/game_button.py:91
 msgid "💎 Присоединиться"
 msgstr "💎 Join"
 
-#: keyboard/game_button.py:120 keyboard/game_button.py:135
+#: keyboard/game_button.py:123
+msgid "✊ Камень"
+msgstr "✊ Rock"
+
+#: keyboard/game_button.py:124
+msgid "✌️ Ножницы"
+msgstr "✌️ Scissors"
+
+#: keyboard/game_button.py:125
+msgid "🖐 Бумага"
+msgstr "🖐 Paper"
+
+#: keyboard/game_button.py:135 keyboard/game_button.py:150
 msgid "➕ Взять еще карту"
 msgstr "➕ Take another card"
 
-#: keyboard/game_button.py:125
+#: keyboard/game_button.py:140
 msgid "✔️ Хватит, пусть играет"
 msgstr "✔️ Enough, let him play"
 
-#: keyboard/game_button.py:140
+#: keyboard/game_button.py:155
 msgid "✔️ Хватит, вскрываемся"
 msgstr "✔️ Enough, let's open up"
 

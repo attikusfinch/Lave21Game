@@ -3,7 +3,7 @@ from aiogram import Router
 from keyboard.main_button import *
 from create_bot import _
 from aiogram import F, Router
-from database.game_db import Game, Poker, Dice
+from database.game_db import Game, Poker, Dice, Rps
 from database.wallet_db import Wallet
 
 from keyboard.cancel_button import *
@@ -15,6 +15,7 @@ mygame_router = Router()
 game_db = Game()
 dice_db = Dice()
 poker_db = Poker()
+rps_db = Rps()
 
 wallet_db = Wallet()
 
@@ -55,6 +56,8 @@ async def delete_my_game(ctx: types.CallbackQuery):
         await poker_db.delete_game(game_id)
     elif game_type == 2:
         await dice_db.delete_game(game_id)
+    elif game_type == 3:
+        await rps_db.delete_game(game_id)
     
     if data is False:
         await ctx.message.edit_text(

@@ -240,3 +240,112 @@ class Dice(Game):
             return None
 
         return data[0]
+    
+class Treasure(Game):
+    def __init__(self):
+        self.connection : aiosqlite.Connection = None
+        self.cursor : aiosqlite.Cursor = None
+        self.name = "treasure"
+        asyncio.run(self.connect())
+        
+    async def add_game(self, game_id, field):
+        await self.cursor.execute(f"INSERT INTO {self.name} (id, bank_score, player_score, treasure_field) VALUES (?, ?, ?, ?)", (game_id, 0, 0, field,))
+        await self.connection.commit()
+        return True
+
+    async def add_score(self, game_id, score, user = "bank"):
+        """
+            user can be bank and player
+        """
+        await self.cursor.execute(f"UPDATE {self.name} SET {user}_score = {user}_score + ? WHERE id = ?", (score, game_id))
+        await self.connection.commit()
+        return True
+    
+    async def add_field(self, game_id, field):
+        """
+            user can be bank and player
+        """
+        await self.cursor.execute(f"UPDATE {self.name} SET treasure_field = ? WHERE id = ?", (field, game_id))
+        await self.connection.commit()
+        return True
+
+    async def get_score(self, game_id, user = "bank"):
+        """
+            User can be bank or player
+        """
+        await self.cursor.execute(f"SELECT {user}_score FROM {self.name} WHERE id = ?", (game_id,))
+        data = await self.cursor.fetchone()
+
+        if data is None:
+            return None
+
+        return data[0]
+
+    async def get_field(self, game_id):
+        """
+            User can be bank or player
+        """
+        await self.cursor.execute(f"SELECT treasure_field FROM {self.name} WHERE id = ?", (game_id,))
+        data = await self.cursor.fetchone()
+
+        if data is None:
+            return None
+
+        return data[0]
+    
+
+class Rps(Game):
+    def __init__(self):
+        self.connection : aiosqlite.Connection = None
+        self.cursor : aiosqlite.Cursor = None
+        self.name = "rps"
+        asyncio.run(self.connect())
+        
+    async def add_game(self, game_id):
+        await self.cursor.execute(f"INSERT INTO {self.name} (id, bank_score, player_score, bank_choose, player_choose) VALUES (?, ?, ?, ?, ?)", (game_id, 0, 0, 0, 0,))
+        await self.connection.commit()
+        return True
+
+    async def add_score(self, game_id, score, user = "bank"):
+        """
+            user can be bank and player
+        """
+        await self.cursor.execute(f"UPDATE {self.name} SET {user}_score = {user}_score + ? WHERE id = ?", (score, game_id))
+        await self.connection.commit()
+        return True
+    
+    async def add_choose(self, game_id, choose, user = "bank"):
+        """
+            user can be bank and player
+            
+            1 - rock
+            2 - paper
+            3 - scissors
+        """
+        await self.cursor.execute(f"UPDATE {self.name} SET {user}_choose = ? WHERE id = ?", (choose, game_id))
+        await self.connection.commit()
+        return True
+
+    async def get_score(self, game_id, user = "bank"):
+        """
+            User can be bank or player
+        """
+        await self.cursor.execute(f"SELECT {user}_score FROM {self.name} WHERE id = ?", (game_id,))
+        data = await self.cursor.fetchone()
+
+        if data is None:
+            return None
+
+        return data[0]
+    
+    async def get_choose(self, game_id, user = "bank"):
+        """
+            User can be bank or player
+        """
+        await self.cursor.execute(f"SELECT {user}_choose FROM {self.name} WHERE id = ?", (game_id,))
+        data = await self.cursor.fetchone()
+
+        if data is None:
+            return None
+
+        return data[0]

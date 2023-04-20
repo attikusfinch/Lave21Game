@@ -2,7 +2,7 @@ from aiogram import types
 from aiogram import Router
 from keyboard.main_button import *
 from database.wallet_db import Wallet
-from database.game_db import Game, Dice, Poker
+from database.game_db import Game, Dice, Poker, Rps
 from create_bot import _
 from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
@@ -20,6 +20,7 @@ game_router = Router()
 game_db = Game()
 dice_db = Dice()
 poker_db = Poker()
+rps_db = Rps()
 
 wallet_db = Wallet()
 game_db = Game()
@@ -125,6 +126,8 @@ async def start_game(ctx: types.Message, state: FSMContext):
         await poker_db.add_game(game_id)
     elif int(game_type) == 2:
         await dice_db.add_game(game_id)
+    elif int(game_type) == 3:
+        await rps_db.add_game(game_id)
     
     emoji = await get_game_emoji(int(game_type))
     

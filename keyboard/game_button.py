@@ -38,7 +38,8 @@ async def get_game_button(user_id, page: int = 0, type = 1) -> InlineKeyboardMar
     markup.row(
         InlineKeyboardButton(text=_('🃏 21 очко'),callback_data='1_game_type_button'),
         InlineKeyboardButton(text=_('🎲 Кости'),callback_data='2_game_type_button'),
-        width=2)
+        InlineKeyboardButton(text=_('🖐 КНБ'),callback_data='3_game_type_button'),
+        width=3)
     
     markup.row(
         InlineKeyboardButton(text=_('🕹️ Создать'),callback_data='create_game_button'),
@@ -104,8 +105,7 @@ async def get_game_type_button() -> InlineKeyboardMarkup:
     markup.row(
         InlineKeyboardButton(text=_('🃏 21 очко'),callback_data=f'1_game_choose_button'),
         InlineKeyboardButton(text=_('🎲 Кости'),callback_data=f'2_game_choose_button'),
-        InlineKeyboardButton(text=_('💣 Сапёр'),callback_data=f'3_game_choose_button'),
-        InlineKeyboardButton(text=_('💰 Клад'),callback_data=f'4_game_choose_button'),
+        InlineKeyboardButton(text=_('🖐 КНБ'),callback_data=f'3_game_choose_button'),
         width=2
     )
     
@@ -113,6 +113,18 @@ async def get_game_type_button() -> InlineKeyboardMarkup:
         InlineKeyboardButton(text=_("назад"), callback_data="update_button"), 
         width=1
         )
+
+    return markup.as_markup(resize_keyboard=True)
+
+async def get_rps_button(game_id: int) -> InlineKeyboardMarkup:
+    markup = InlineKeyboardBuilder()
+
+    markup.row(
+        InlineKeyboardButton(text=_('✊ Камень'),callback_data=f'{game_id}_1_rps_choose_button'),
+        InlineKeyboardButton(text=_('✌️ Ножницы'),callback_data=f'{game_id}_2_rps_choose_button'),
+        InlineKeyboardButton(text=_('🖐 Бумага'),callback_data=f'{game_id}_3_rps_choose_button'),
+        width=1
+    )
 
     return markup.as_markup(resize_keyboard=True)
 
@@ -128,7 +140,7 @@ async def get_gaming_button(game_id) -> InlineKeyboardMarkup:
         InlineKeyboardButton(text=_('✔️ Хватит, пусть играет'),callback_data=f'{game_id}_pass_button'),
         width=1
     )
-    
+
     return markup.as_markup(resize_keyboard=True)
 
 async def get_banking_button(game_id) -> InlineKeyboardMarkup:
